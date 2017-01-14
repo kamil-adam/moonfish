@@ -24,6 +24,17 @@ class H2Spec extends FunSpec {
           Set.empty.head
         }
       }
+     it("SCHEMATA") {
+        val dbi = new DBI(ds);
+        val h = dbi.open();
+
+        val query = h.createQuery("select * from INFORMATION_SCHEMA.SCHEMATA")
+//          .map(StringMapper.FIRST)
+
+//        assertThat(name, equalTo("Brian"));
+
+        h.close();
+      }
       it("CATALOGS") {
         val dbi = new DBI(ds);
         val h = dbi.open();

@@ -16,9 +16,6 @@
 		<scalatest.version>3.0.1</scalatest.version>
 		<dropwizard.version>1.0.5</dropwizard.version>
 		<guice.version>4.1.0</guice.version>
-		<!-- <springframework.version>5.0.0.M3</springframework.version> -->
-		<springframework.version>4.3.5.RELEASE</springframework.version>
-		<xbean.version>3.11.1</xbean.version>
 		<h2.version>1.4.193</h2.version>
 	</properties>
 
@@ -80,23 +77,6 @@
 		</dependency>
 
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context</artifactId>
-			<version>${springframework.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.xbean</groupId>
-			<artifactId>xbean-spring</artifactId>
-			<version>${xbean.version}</version>
-		</dependency>
-
-
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-jms</artifactId>
-			<version>${springframework.version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>com.h2database</groupId>
