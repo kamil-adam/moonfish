@@ -1,16 +1,18 @@
 package pl.scalare.infrastructure
 
 import org.scalatest.FunSpec
-import org.h2.jdbcx.JdbcConnectionPool
 
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
 
-class H2Spec extends FunSpec {
-  describe("jdbc:h2:mem:test") {
-    val ds = JdbcConnectionPool.create("jdbc:h2:mem:test",
-      "username",
-      "password");
+import org.hsqldb.jdbc.JDBCPool
+
+class HqslSpec extends FunSpec {
+  describe("jdbc:hsqldb:file:testdb") {
+    val ds = new JDBCPool()
+    ds.setDatabase("jdbc:hsqldb:file:testdb")
+    ds.setUser("SA")
+    ds.setPassword("")
 
     describe("select") {
       it("SCHEMATA") {
@@ -23,6 +25,8 @@ class H2Spec extends FunSpec {
 
         h.close();
       }
+    }
+    describe("createQuery") {
       it("CATALOGS") {
         val dbi = new DBI(ds);
         val h = dbi.open();
@@ -34,8 +38,7 @@ class H2Spec extends FunSpec {
 
         h.close();
       }
-    }
-    describe("createQueryt") {
+      
       it("TABLE_TYPES") {
         val dbi = new DBI(ds);
         val h = dbi.open();
