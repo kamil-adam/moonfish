@@ -7,10 +7,9 @@ import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
 
 class H2Spec extends FunSpec {
-  describe("jdbc:h2:mem:test") {
-    val ds = JdbcConnectionPool.create("jdbc:h2:mem:test",
-      "username",
-      "password");
+  val url = "jdbc:h2:mem:test"
+  describe(url) {
+    val ds = JdbcConnectionPool.create(url,"username","password");
 
     describe("select") {
       it("SCHEMATA") {

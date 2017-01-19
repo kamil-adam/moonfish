@@ -8,9 +8,10 @@ import org.skife.jdbi.v2.util.StringMapper
 import org.hsqldb.jdbc.JDBCPool
 
 class HqslSpec extends FunSpec {
-  describe("jdbc:hsqldb:file:testdb") {
+  val url = "jdbc:hsqldb:file:testdb"
+  describe(url) {
     val ds = new JDBCPool()
-    ds.setDatabase("jdbc:hsqldb:file:testdb")
+    ds.setDatabase(url)
     ds.setUser("SA")
     ds.setPassword("")
 

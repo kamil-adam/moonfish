@@ -5,13 +5,18 @@ import org.h2.jdbcx.JdbcConnectionPool
 
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
+import org.apache.derby.jdbc.EmbeddedDataSource
+import org.apache.derby.jdbc.EmbeddedConnectionPoolDataSource
 
 class DerbySpec extends FunSpec {
-  describe("derby") {
-    val ds = JdbcConnectionPool.create("jdbc:h2:mem:test",
-      "username",
-      "password");
-    
+  val url = "jdbc:h2:mem:test"
+  describe(url) {
+//    val ds = new EmbeddedConnectionPoolDataSource()
+    val ds = new EmbeddedDataSource();
+    ds.setDatabaseName(url);
+
+    ds.setCreateDatabase("create");
+
     it("SCHEMATA") {
       val dbi = new DBI(ds);
       val h = dbi.open();

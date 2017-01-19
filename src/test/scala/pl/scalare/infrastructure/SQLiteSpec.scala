@@ -8,18 +8,16 @@ import org.skife.jdbi.v2.util.StringMapper
 import java.sql.DriverManager
 import java.io.IOException
 import java.sql.Connection
+import org.sqlite.SQLiteJDBCLoader
+import org.sqlite.SQLiteDataSource
 
 class SQLiteSpec extends FunSpec {
-  describe("when empty") {
-    val ds = "jdbc:sqlite:test.db"
+  val url = "jdbc:sqlite:jdbc.sqlite"
+  describe(url) {
+    val initialize = SQLiteJDBCLoader.initialize();
+    val ds = new SQLiteDataSource();
+    ds.setUrl(url);
 
-    var c: Connection = null;
-    try {
-      Class.forName("org.sqlite.JDBC")
-      c = DriverManager.getConnection("jdbc:sqlite:test.db")
-    } catch {
-      case e: Exception =>
-    }
     describe("when empty") {
       it("SCHEMATA") {
         val dbi = new DBI(ds);
