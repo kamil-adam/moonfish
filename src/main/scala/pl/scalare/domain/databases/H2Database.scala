@@ -16,3 +16,7 @@ class H2Database extends Database {
   def cpds =  JdbcConnectionPool.create(url,"username","password");
 
 }
+
+object H2Database extends DatabaseApp {
+  selects(new H2Database)
+}

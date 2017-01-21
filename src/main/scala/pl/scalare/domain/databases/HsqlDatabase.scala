@@ -16,3 +16,7 @@ class HsqlDatabase extends Database {
     ds
   }
 }
+
+object HsqlDatabase extends DatabaseApp {
+  selects(new HsqlDatabase)
+}
