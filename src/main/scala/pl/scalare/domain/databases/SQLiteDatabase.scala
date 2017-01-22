@@ -4,14 +4,14 @@ import org.sqlite.SQLiteDataSource
 
 class SQLiteDatabase extends Database {
 
-  def schema = ""
-  def tables = Set("sqlite_temp_master")
+ override def schema = ""
+ override def tables = Set("sqlite_temp_master")
 
-  def file = "jdbc.sqlite"
-  def url = "jdbc:sqlite:" + file
-  def mem = "jdbc:sqlite::memory:"
+  override def file = "jdbc.sqlite"
+  override def url = "jdbc:sqlite:" + file
+  override def mem = "jdbc:sqlite::memory:"
 
-  def ds = {
+  override def ds = {
     val ds = new SQLiteDataSource()
     ds.setUrl(url)
     ds

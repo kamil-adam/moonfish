@@ -17,6 +17,7 @@ trait Database {
 
   def file: String
   def url: String
+  def mem:String
 
   def ds: DataSource
 
@@ -31,7 +32,8 @@ trait XADatabase {
 }
 
 object Database {
-  val prefix = "SELECT * FROM "
+  def prefix = "SELECT * FROM "
+  def folder = "database/" 
 }
 
 trait DatabaseApp extends App {

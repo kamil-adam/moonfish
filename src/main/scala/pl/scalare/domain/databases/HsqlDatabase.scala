@@ -13,14 +13,14 @@ class HsqlDatabase extends Database {
   //    "CHECK_CONSTRAINTS"
   //    )
 
-  def schema = "INFORMATION_SCHEMA."
-  def tables = Set("VIEWS")
+ override def schema = "INFORMATION_SCHEMA."
+ override def tables = Set("VIEWS")
 
-  def file = "jdbc.hsqldb"
-  def url = "jdbc:hsqldb:file:" + file + ";ifexists=true"
+ override def file = "jdbc.hsqldb"
+ override def url = "jdbc:hsqldb:file:" + file + ";ifexists=true"
   def mem = "jdbc:hsqldb:mem:" + file 
 
-  def ds = {
+ override def ds = {
     val ds = new JDBCPool()
     ds.setDatabase(mem)
     ds.setUser("SA")
