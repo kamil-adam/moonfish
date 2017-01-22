@@ -6,6 +6,8 @@ import javax.sql.ConnectionPoolDataSource
 import javax.sql.DataSource
 import javax.sql.XADataSource
 import org.skife.jdbi.v2.DBI
+import com.typesafe.scalalogging.LazyLogging
+import pl.scalare.domain.AppLogging
 
 trait Database {
 
@@ -17,7 +19,7 @@ trait Database {
 
   def file: String
   def url: String
-  def mem:String
+  def mem: String
 
   def ds: DataSource
 
@@ -33,13 +35,13 @@ trait XADatabase {
 
 object Database {
   def prefix = "SELECT * FROM "
-  def folder = "database/" 
+  def folder = "database/"
 }
 
-trait DatabaseApp extends App {
+trait DatabaseApp extends AppLogging {
   //  def selects(s : Database) = s.selects.values.foreach(v => println (v))
   def run(db: Database) = {
-    db.selects.values.foreach(v => println(v))
+    db.selects.values.foreach(v => logger.info(v))
     val ds = db.ds
     val dbi = new DBI(ds)
     db.selects.values.map(v => {
@@ -47,7 +49,7 @@ trait DatabaseApp extends App {
       val list = h.select(v)
       h.close()
       list
-    }).foreach { x => println(x) }
+    }).foreach { x => logger.info("" + x) }
   }
 }
   
