@@ -1,2 +1,1 @@
-# ASAP
-A Scalable Application - Processing
+# scalaRE

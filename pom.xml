@@ -39,34 +39,34 @@
 			<version>${scalate.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.scalatra.scalate</groupId>
-			<artifactId>scalate-test_2.11</artifactId>
-			<version>${scalate.version}</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.scalatra.scalate</groupId> <artifactId>scalate-test_2.11</artifactId> 
+			<version>${scalate.version}</version> </dependency> -->
 
 
-		<dependency>
-			<groupId>org.scalatra.scalate</groupId>
-			<artifactId>scalate-guice_2.11</artifactId>
-			<version>${scalate.version}</version>
-		</dependency>
+		<!-- <dependency> <groupId>org.scalatra.scalate</groupId> <artifactId>scalate-guice_2.11</artifactId> 
+			<version>${scalate.version}</version> </dependency> -->
 
-		<dependency>
-			<groupId>javax.inject</groupId>
-			<artifactId>javax.inject</artifactId>
-			<version>1</version>
-		</dependency>
+		<!-- <dependency> <groupId>javax.inject</groupId> <artifactId>javax.inject</artifactId> 
+			<version>1</version> </dependency> -->
 
-		<dependency>
-			<groupId>com.google.inject</groupId>
-			<artifactId>guice</artifactId>
-			<version>${guice.version}</version>
-		</dependency>
+		<!-- <dependency> <groupId>com.google.inject</groupId> <artifactId>guice</artifactId> 
+			<version>${guice.version}</version> </dependency> -->
 
 		<dependency>
 			<groupId>io.dropwizard</groupId>
 			<artifactId>dropwizard-core</artifactId>
+			<version>${dropwizard.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.sun.jersey</groupId>
+					<artifactId>jersey-core</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>io.dropwizard</groupId>
+			<artifactId>dropwizard-client</artifactId>
 			<version>${dropwizard.version}</version>
 		</dependency>
 
@@ -75,6 +75,7 @@
 			<artifactId>dropwizard-jdbi</artifactId>
 			<version>${dropwizard.version}</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>io.dropwizard</groupId>

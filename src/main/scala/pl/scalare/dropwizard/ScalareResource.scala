@@ -10,15 +10,21 @@ import javax.ws.rs.Produces
 import javax.ws.rs.QueryParam
 
 import javax.ws.rs.core.MediaType
+import java.util.Optional
 
 @Path("/scalare")
 @Produces(Array(MediaType.APPLICATION_JSON))
-class ScalareResource (val template:String, val defaultName :String) {
-    val counter = new AtomicLong()
-    @GET
-    @Timed
-     def information(@QueryParam("name")  name: Option[String]): Information = {
-        val value = String.format(template, name.getOrElse(defaultName));
-        return new Information(counter.incrementAndGet(), value);
-    }
+class ScalareResource(val template: String, val defaultName: String) {
+  val counter = new AtomicLong()
+
+  @GET()
+  @Path("/information")
+  @Timed
+  def information(@QueryParam("name") name: Optional[String]): Information = {
+    val nameOption = Option(name.orElse(null))
+    val nameNotNull = nameOption.getOrElse(defaultName)
+    val value = String.format(template, nameNotNull);
+    return new Information(counter.incrementAndGet(), value);
+
+  }
 }
