@@ -5,18 +5,26 @@ import org.h2.Driver
 
 class H2Database extends Database {
 
-  def tables = Set("TABLE_CATALOG", "TABLE_SCHEMA", "TABLE_NAME", "TABLE_TYPE", "TABLE_SOURCE")
+  def schema = "INFORMATION_SCHEMA."
   
-  def url = "jdbc:h2::jdbc"
-  def mem = "jdbc:h2:mem:jdbc.h2"
-  def tcp = "jdbc:h2:tsp:jdbc.h2"
-  
-  def ds = JdbcConnectionPool.create(url,"username","password");
-  
-  def cpds =  JdbcConnectionPool.create(url,"username","password");
+  def tables = Set(
+      "CATALOGS", 
+      "COLLATIONS", 
+      "COLUMNS", 
+      "COLUMN_PRIVILEGES", 
+      "CONSTANTS")
+
+  def file = "jdbc.h2"
+  def url = "jdbc:h2::./" + file
+  def mem = "jdbc:h2:mem:" + file
+  def tcp = "jdbc:h2:tsp:" + file
+
+  def ds = JdbcConnectionPool.create(url, "username", "password");
+
+  def cpds = JdbcConnectionPool.create(url, "username", "password");
 
 }
 
 object H2Database extends DatabaseApp {
-  selects(new H2Database)
+  run(new H2Database)
 }

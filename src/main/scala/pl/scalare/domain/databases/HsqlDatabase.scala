@@ -4,13 +4,25 @@ import org.sqlite.SQLiteDataSource
 import org.hsqldb.jdbc.JDBCPool
 
 class HsqlDatabase extends Database {
-  def tables = Set("TABLE_CATALOG", "TABLE_SCHEMA", "TABLE_NAME", "TABLE_TYPE", "TABLE_SOURCE")
+  //  def tables = Set(
+  //    "ADMINISTRABLE_ROLE_AUTHORIZATIONS",
+  //    "APPLICABLE_ROLES",
+  //    "ASSERTIONS",
+  ////    "AUTHORIZATIONS",
+  //    "CHARACTER_SETS",
+  //    "CHECK_CONSTRAINTS"
+  //    )
 
-  def url = "jdbc:hsqldb:jdbc.hsqldb"
+  def schema = "INFORMATION_SCHEMA."
+  def tables = Set("VIEWS")
+
+  def file = "jdbc.hsqldb"
+  def url = "jdbc:hsqldb:file:" + file + ";ifexists=true"
+  def mem = "jdbc:hsqldb:mem:" + file 
 
   def ds = {
     val ds = new JDBCPool()
-    ds.setDatabase(url)
+    ds.setDatabase(mem)
     ds.setUser("SA")
     ds.setPassword("")
     ds
@@ -18,5 +30,5 @@ class HsqlDatabase extends Database {
 }
 
 object HsqlDatabase extends DatabaseApp {
-  selects(new HsqlDatabase)
+  run(new HsqlDatabase)
 }

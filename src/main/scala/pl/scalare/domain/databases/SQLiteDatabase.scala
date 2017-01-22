@@ -4,18 +4,21 @@ import org.sqlite.SQLiteDataSource
 
 class SQLiteDatabase extends Database {
 
-  def tables = Set("TABLE_CATALOG", "TABLE_SCHEMA", "TABLE_NAME", "TABLE_TYPE", "TABLE_SOURCE")
+  def schema = ""
+  def tables = Set("sqlite_temp_master")
 
-  def url = "jdbc:sqlite:jdbc.sqlite"
+  def file = "jdbc.sqlite"
+  def url = "jdbc:sqlite:" + file
+  def mem = "jdbc:sqlite::memory:"
 
   def ds = {
-    val ds = new SQLiteDataSource();
-    ds.setUrl(url);
+    val ds = new SQLiteDataSource()
+    ds.setUrl(url)
     ds
   }
 
 }
 
 object SQLiteDatabase extends DatabaseApp {
-  selects(new SQLiteDatabase)
+  run(new SQLiteDatabase)
 }

@@ -9,10 +9,13 @@ import org.skife.jdbi.v2.DBI
 
 trait Database {
 
-  def selects: Map[String, String] = tables.map(t => (t, Database.prefix + t)).toMap
+  def selects: Map[String, String] = tables.map(t => (t, Database.prefix + schema + t)).toMap
+
+  def schema: String
 
   def tables: Set[String]
 
+  def file: String
   def url: String
 
   def ds: DataSource
@@ -33,11 +36,11 @@ object Database {
 
 trait DatabaseApp extends App {
   //  def selects(s : Database) = s.selects.values.foreach(v => println (v))
-  def selects(s: Database) = {
-    s.selects.values.foreach(v => println(v))
-    s.selects.values.map(v => {
-      val ds = s.ds
-      val dbi = new DBI(ds)
+  def run(db: Database) = {
+    db.selects.values.foreach(v => println(v))
+    val ds = db.ds
+    val dbi = new DBI(ds)
+    db.selects.values.map(v => {
       val h = dbi.open()
       val list = h.select(v)
       h.close()
