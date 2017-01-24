@@ -1,11 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>pl.writeonly</groupId>
 
-	<artifactId>scalare</artifactId>
-	<packaging>pom</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<parent>
+		<groupId>pl.writeonly</groupId>
+		<artifactId>scalare</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>scalare-view</artifactId>
+	<packaging>jar</packaging>
 
 	<properties>
 		<encoding>UTF-8</encoding>
@@ -20,19 +24,30 @@
 		<h2.version>1.4.193</h2.version>
 	</properties>
 
-	<modules>
-		<module>scalare-core</module>
-		<module>scalare-impl</module>
-		<module>scalare-auth</module>
-		<module>scalare-view</module>
-		<module>scalare-main</module>
-	</modules>
-
 	<dependencies>
+
+		<dependency>
+			<groupId>pl.writeonly</groupId>
+			<artifactId>scalare-domain</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.dropwizard</groupId>
+			<artifactId>dropwizard-jdbi</artifactId>
+			<version>${dropwizard.version}</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.typesafe.scala-logging</groupId>
 			<artifactId>scala-logging_2.11</artifactId>
 			<version>${scala-logging.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.scalatest</groupId>
+			<artifactId>scalatest_2.11</artifactId>
+			<version>${scalatest.version}</version>
 		</dependency>
 
 		<dependency>
@@ -54,6 +69,40 @@
 		<!-- <dependency> <groupId>com.google.inject</groupId> <artifactId>guice</artifactId> 
 			<version>${guice.version}</version> </dependency> -->
 
+
+
+
+
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>2.3.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>sqltool</artifactId>
+			<version>2.3.4</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.derby</groupId>
+			<artifactId>derby</artifactId>
+			<version>10.13.1.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.xerial</groupId>
+			<artifactId>sqlite-jdbc</artifactId>
+			<version>3.16.1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -79,29 +128,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>pl.writeonly</groupId>
-				<artifactId>scalare-domain</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>pl.writeonly</groupId>
-				<artifactId>scalare-infrastructure</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>pl.writeonly</groupId>
-				<artifactId>scalare-application</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-			<dependency>
-				<groupId>pl.writeonly</groupId>
-				<artifactId>scalare-dropwizard</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 </project>
