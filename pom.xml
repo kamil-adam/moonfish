@@ -21,25 +21,16 @@
 	</properties>
 
 	<modules>
+		<module>scalare-util</module>
 		<module>scalare-core</module>
 		<module>scalare-impl</module>
+		<module>scalare-japi</module>
 		<module>scalare-auth</module>
 		<module>scalare-view</module>
 		<module>scalare-main</module>
 	</modules>
 
 	<dependencies>
-		<dependency>
-			<groupId>com.typesafe.scala-logging</groupId>
-			<artifactId>scala-logging_2.11</artifactId>
-			<version>${scala-logging.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.scalatra.scalate</groupId>
-			<artifactId>scalate-core_2.11</artifactId>
-			<version>${scalate.version}</version>
-		</dependency>
 
 		<!-- <dependency> <groupId>org.scalatra.scalate</groupId> <artifactId>scalate-test_2.11</artifactId> 
 			<version>${scalate.version}</version> </dependency> -->
@@ -84,22 +75,37 @@
 		<dependencies>
 			<dependency>
 				<groupId>pl.writeonly</groupId>
-				<artifactId>scalare-domain</artifactId>
+				<artifactId>scalare-util</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>pl.writeonly</groupId>
-				<artifactId>scalare-infrastructure</artifactId>
+				<artifactId>scalare-core</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>pl.writeonly</groupId>
-				<artifactId>scalare-application</artifactId>
+				<artifactId>scalare-impl</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 			<dependency>
 				<groupId>pl.writeonly</groupId>
-				<artifactId>scalare-dropwizard</artifactId>
+				<artifactId>scalare-japi</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>pl.writeonly</groupId>
+				<artifactId>scalare-auth</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>pl.writeonly</groupId>
+				<artifactId>scalare-view</artifactId>
+				<version>0.0.1-SNAPSHOT</version>
+			</dependency>
+			<dependency>
+				<groupId>pl.writeonly</groupId>
+				<artifactId>scalare-main</artifactId>
 				<version>0.0.1-SNAPSHOT</version>
 			</dependency>
 		</dependencies>

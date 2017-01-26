@@ -1,4 +1,4 @@
-package pl.scalare.dropwizard
+package pl.scalare.main
 
 import java.util.concurrent.atomic.AtomicLong
 

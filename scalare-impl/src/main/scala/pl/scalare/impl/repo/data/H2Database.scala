@@ -1,4 +1,4 @@
-package pl.scalare.domain.databases
+package pl.scalare.impl.repo.data
 
 import org.h2.jdbcx.JdbcConnectionPool
 import org.h2.Driver

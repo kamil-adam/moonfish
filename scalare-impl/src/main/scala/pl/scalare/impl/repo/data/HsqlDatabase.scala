@@ -1,4 +1,4 @@
-package pl.scalare.domain.databases
+package pl.scalare.impl.repo.data
 
 import org.sqlite.SQLiteDataSource
 import org.hsqldb.jdbc.JDBCPool

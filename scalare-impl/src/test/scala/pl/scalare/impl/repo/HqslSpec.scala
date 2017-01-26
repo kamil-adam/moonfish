@@ -1,24 +1,21 @@
-package pl.scalare.infrastructure
+package pl.scalare.impl.repo
 
 import org.scalatest.FunSpec
-import org.h2.jdbcx.JdbcConnectionPool
 
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
-import java.sql.DriverManager
-import java.io.IOException
-import java.sql.Connection
-import org.sqlite.SQLiteJDBCLoader
-import org.sqlite.SQLiteDataSource
 
-class SQLiteSpec extends FunSpec {
-  val url = "jdbc:sqlite:jdbc.sqlite"
+import org.hsqldb.jdbc.JDBCPool
+
+class HqslSpec extends FunSpec {
+  val url = "jdbc:hsqldb:file:testdb"
   describe(url) {
-    val initialize = SQLiteJDBCLoader.initialize();
-    val ds = new SQLiteDataSource();
-    ds.setUrl(url);
+    val ds = new JDBCPool()
+    ds.setDatabase(url)
+    ds.setUser("SA")
+    ds.setPassword("")
 
-    describe("when empty") {
+    describe("select") {
       it("SCHEMATA") {
         val dbi = new DBI(ds);
         val h = dbi.open();
@@ -30,7 +27,7 @@ class SQLiteSpec extends FunSpec {
         h.close();
       }
     }
-    describe("when empty") {
+    describe("createQuery") {
       it("CATALOGS") {
         val dbi = new DBI(ds);
         val h = dbi.open();
@@ -42,6 +39,7 @@ class SQLiteSpec extends FunSpec {
 
         h.close();
       }
+      
       it("TABLE_TYPES") {
         val dbi = new DBI(ds);
         val h = dbi.open();

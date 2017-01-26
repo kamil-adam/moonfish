@@ -1,4 +1,4 @@
-package pl.scalare.dropwizard
+package pl.scalare.main
 
 import com.codahale.metrics.health.HealthCheck.Result
 import com.codahale.metrics.health.HealthCheck

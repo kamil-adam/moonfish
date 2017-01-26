@@ -1,11 +1,11 @@
-package pl.scalare.dropwizard
+package pl.scalare.main
 
 import com.typesafe.scalalogging.LazyLogging
 
 import io.dropwizard.Application
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
-import pl.scalare.domain.AppLogging
+import pl.scalare.util.AppLogging
 
 class ScalareApplication extends Application[ScalareConfiguration] with LazyLogging {
 

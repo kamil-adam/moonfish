@@ -1,4 +1,4 @@
-package pl.scalare.dropwizard
+package pl.scalare.main
 
 import org.hibernate.validator.constraints.Length
 import scala.beans.BeanProperty

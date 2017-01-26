@@ -1,4 +1,4 @@
-package pl.scalare.domain.databases
+package pl.scalare.impl.repo.data
 
 import java.sql.DriverManager
 
@@ -7,7 +7,7 @@ import javax.sql.DataSource
 import javax.sql.XADataSource
 import org.skife.jdbi.v2.DBI
 import com.typesafe.scalalogging.LazyLogging
-import pl.scalare.domain.AppLogging
+import pl.scalare.util.AppLogging
 
 trait Database {
 

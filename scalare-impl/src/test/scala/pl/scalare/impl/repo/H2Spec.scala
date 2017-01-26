@@ -1,4 +1,4 @@
-package pl.scalare.infrastructure
+package pl.scalare.impl.repo
 
 import org.scalatest.FunSpec
 import org.h2.jdbcx.JdbcConnectionPool
