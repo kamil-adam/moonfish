@@ -1,4 +1,4 @@
-package pl.scalare.dropwizard.jdbi
+package pl.scalare.main.jdbi
 
 import io.dropwizard.Application
 import pl.scalare.dropwizard.ScalareResource

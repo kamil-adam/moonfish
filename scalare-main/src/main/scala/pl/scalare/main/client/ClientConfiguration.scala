@@ -1,4 +1,4 @@
-package pl.scalare.dropwizard.client
+package pl.scalare.main.client
 
 import scala.beans.BeanProperty
 

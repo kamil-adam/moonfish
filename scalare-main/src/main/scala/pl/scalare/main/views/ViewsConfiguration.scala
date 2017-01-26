@@ -1,4 +1,4 @@
-package pl.scalare.dropwizard.jdbi
+package pl.scalare.main.views
 
 import scala.beans.BeanProperty
 
@@ -6,10 +6,11 @@ import io.dropwizard.Configuration
 import io.dropwizard.db.DataSourceFactory
 import javax.validation.Valid
 
-class JdbiConfiguration extends Configuration {
+
+class ViewsConfiguration extends Configuration {
+  //  @NotNull
   @BeanProperty
   @Valid
-//  @NotNull
-  var factory = new DataSourceFactory()
+  var s: String = ""
 
 }

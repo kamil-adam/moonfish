@@ -1,4 +1,4 @@
-package pl.scalare.dropwizard.core
+package pl.scalare.main.core
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import io.dropwizard.setup.Environment

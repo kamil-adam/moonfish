@@ -1,4 +1,4 @@
-package pl.scalare.dropwizard.views
+package pl.scalare.main.views
 
 import io.dropwizard.Application
 import pl.scalare.dropwizard.ScalareResource
