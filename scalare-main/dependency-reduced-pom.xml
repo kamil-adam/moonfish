@@ -75,15 +75,8 @@
   </build>
   <properties>
     <encoding>UTF-8</encoding>
-    <scalatest.version>3.0.1</scalatest.version>
-    <scalate.version>1.8.0</scalate.version>
-    <guice.version>4.1.0</guice.version>
-    <scala-logging.version>3.5.0</scala-logging.version>
-    <h2.version>1.4.193</h2.version>
-    <maven.compiler.target>1.8</maven.compiler.target>
-    <dropwizard.version>1.0.5</dropwizard.version>
-    <scala.version>2.11.8</scala.version>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 </project>
 

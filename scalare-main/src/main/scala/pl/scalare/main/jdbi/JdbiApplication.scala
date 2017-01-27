@@ -1,11 +1,11 @@
 package pl.scalare.main.jdbi
 
 import io.dropwizard.Application
-import pl.scalare.dropwizard.ScalareResource
+import pl.scalare.main.ScalareResource
 import com.typesafe.scalalogging.LazyLogging
-import pl.scalare.dropwizard.TemplateHealthCheck
+import pl.scalare.main.TemplateHealthCheck
 import io.dropwizard.setup.Environment
-import pl.scalare.dropwizard.ScalareConfiguration
+import pl.scalare.main.ScalareConfiguration
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.jdbi.DBIFactory
 

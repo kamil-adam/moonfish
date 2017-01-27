@@ -6,7 +6,7 @@ import io.dropwizard.Application
 import io.dropwizard.client.HttpClientBuilder
 import io.dropwizard.setup.Bootstrap
 import io.dropwizard.setup.Environment
-import pl.scalare.dropwizard.ApplicationLogging
+import pl.scalare.main.ApplicationLogging
 import io.dropwizard.client.JerseyClientBuilder
 
 class ClientApplication extends ApplicationLogging[ClientConfiguration] {
