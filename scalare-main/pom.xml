@@ -23,11 +23,11 @@
 
 		<dependency>
 			<groupId>pl.writeonly</groupId>
-			<artifactId>scalare-auth</artifactId>
+			<artifactId>scalare-impl</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>pl.writeonly</groupId>
-			<artifactId>scalare-impl</artifactId>
+			<artifactId>scalare-rest</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>pl.writeonly</groupId>
