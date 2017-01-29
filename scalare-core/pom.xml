@@ -1,64 +1,64 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>pl.writeonly</groupId>
-		<artifactId>scalare</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <groupId>pl.writeonly</groupId>
+        <artifactId>scalare</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
-	<artifactId>scalare-core</artifactId>
-	<packaging>jar</packaging>
+    <artifactId>scalare-core</artifactId>
+    <packaging>jar</packaging>
 
-	<properties>
-		<encoding>UTF-8</encoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<scala.version>2.11.8</scala.version>
-	</properties>
+    <properties>
+        <encoding>UTF-8</encoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <scala.version>2.11.8</scala.version>
+    </properties>
 
-	<dependencies>
+    <dependencies>
 
-		<dependency>
-			<groupId>pl.writeonly</groupId>
-			<artifactId>scalare-util</artifactId>
-		</dependency>
+        <dependency>
+            <groupId>pl.writeonly</groupId>
+            <artifactId>scalare-util</artifactId>
+        </dependency>
 
-		<dependency>
-			<groupId>io.dropwizard</groupId>
-			<artifactId>dropwizard-core</artifactId>
-			
-			<exclusions>
-				<exclusion>
-					<groupId>com.sun.jersey</groupId>
-					<artifactId>jersey-core</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-core</artifactId>
 
-	<build>
-		<sourceDirectory>src/main/scala</sourceDirectory>
-		<testSourceDirectory>src/test/scala</testSourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.scala-tools</groupId>
-				<artifactId>maven-scala-plugin</artifactId>
-				<version>2.15.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-							<goal>testCompile</goal>
-						</goals>
-						<configuration>
-							<args>
-							</args>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.sun.jersey</groupId>
+                    <artifactId>jersey-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <sourceDirectory>src/main/scala</sourceDirectory>
+        <testSourceDirectory>src/test/scala</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <version>2.15.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                            </args>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

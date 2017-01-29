@@ -8,7 +8,7 @@ import javax.ws.rs.{GET, Path, Produces, QueryParam}
 import com.codahale.metrics.annotation.Timed
 import pl.scalare.japi.Information
 
-@Path("/scalare")
+@Path("/rest/scalare")
 @Produces(Array(MediaType.APPLICATION_JSON))
 class ScalareResource(val template: String, val defaultName: String) {
   val counter = new AtomicLong()

@@ -40,7 +40,7 @@
               <transformers>
                 <transformer />
                 <transformer>
-                  <mainClass>pl.scalare.dropwizard.ScalareApplication</mainClass>
+                  <mainClass>pl.scalare.main.ScalareApplication</mainClass>
                 </transformer>
               </transformers>
             </configuration>

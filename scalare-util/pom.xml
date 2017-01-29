@@ -1,61 +1,61 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>pl.writeonly</groupId>
-		<artifactId>scalare</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <groupId>pl.writeonly</groupId>
+        <artifactId>scalare</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
-	<artifactId>scalare-util</artifactId>
-	<packaging>jar</packaging>
+    <artifactId>scalare-util</artifactId>
+    <packaging>jar</packaging>
 
-	<properties>
-		<encoding>UTF-8</encoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<scala.version>2.11.8</scala.version>
-		<scala-logging.version>3.5.0</scala-logging.version>
-		<scalatest.version>3.0.1</scalatest.version>
-	</properties>
+    <properties>
+        <encoding>UTF-8</encoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <scala.version>2.11.8</scala.version>
+        <scala-logging.version>3.5.0</scala-logging.version>
+        <scalatest.version>3.0.1</scalatest.version>
+    </properties>
 
-	<dependencies>
+    <dependencies>
 
-		<dependency>
-			<groupId>com.typesafe.scala-logging</groupId>
-			<artifactId>scala-logging_2.11</artifactId>
-			<version>${scala-logging.version}</version>
-		</dependency>
+        <dependency>
+            <groupId>com.typesafe.scala-logging</groupId>
+            <artifactId>scala-logging_2.11</artifactId>
+            <version>${scala-logging.version}</version>
+        </dependency>
 
-		<dependency>
-			<groupId>org.scalatest</groupId>
-			<artifactId>scalatest_2.11</artifactId>
-			<version>${scalatest.version}</version>
-		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>org.scalatest</groupId>
+            <artifactId>scalatest_2.11</artifactId>
+            <version>${scalatest.version}</version>
+        </dependency>
+    </dependencies>
 
-	<build>
-		<sourceDirectory>src/main/scala</sourceDirectory>
-		<testSourceDirectory>src/test/scala</testSourceDirectory>
-		<plugins>
-			<plugin>
-				<groupId>org.scala-tools</groupId>
-				<artifactId>maven-scala-plugin</artifactId>
-				<version>2.15.0</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-							<goal>testCompile</goal>
-						</goals>
-						<configuration>
-							<args>
-							</args>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+    <build>
+        <sourceDirectory>src/main/scala</sourceDirectory>
+        <testSourceDirectory>src/test/scala</testSourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.scala-tools</groupId>
+                <artifactId>maven-scala-plugin</artifactId>
+                <version>2.15.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                        <configuration>
+                            <args>
+                            </args>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

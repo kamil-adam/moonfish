@@ -1,39 +1,40 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>pl.writeonly</groupId>
-		<artifactId>scalare</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+    <parent>
+        <groupId>pl.writeonly</groupId>
+        <artifactId>scalare</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
-	<artifactId>scalare-rest</artifactId>
-	<packaging>jar</packaging>
+    <artifactId>scalare-rest</artifactId>
+    <packaging>jar</packaging>
 
-	<properties>
-		<encoding>UTF-8</encoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<scala.version>2.11.8</scala.version>
-		<scala-logging.version>3.5.0</scala-logging.version>
-		<scalatest.version>3.0.1</scalatest.version>
-		<scalate.version>1.8.0</scalate.version>
-	</properties>
+    <properties>
+        <encoding>UTF-8</encoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <scala.version>2.11.8</scala.version>
+        <scala-logging.version>3.5.0</scala-logging.version>
+        <scalatest.version>3.0.1</scalatest.version>
+        <scalate.version>1.8.0</scalate.version>
+    </properties>
 
-	<dependencies>
-		<dependency>
-			<groupId>pl.writeonly</groupId>
-			<artifactId>scalare-japi</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>pl.writeonly</groupId>
-			<artifactId>scalare-core</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>io.dropwizard</groupId>
-			<artifactId>dropwizard-auth</artifactId>
-		</dependency>
+    <dependencies>
+        <dependency>
+            <groupId>pl.writeonly</groupId>
+            <artifactId>scalare-japi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>pl.writeonly</groupId>
+            <artifactId>scalare-impl</artifactId>
+        </dependency>
 
-	</dependencies>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-auth</artifactId>
+        </dependency>
+
+    </dependencies>
 </project>

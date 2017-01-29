@@ -1,16 +1,14 @@
 package pl.writeonly.dropservices
 
-;
-
-import com.google.common.eventbus._;
+import com.google.common.eventbus._
 
 object HierarchyApp extends App {
 
-  val eb = new EventBus();
-  eb.register(new IntListener());
-  eb.register(new NumberListener());
-  eb.post(1);
-  eb.post(2L);
+  val eb = new EventBus()
+  eb.register(new IntListener())
+  eb.register(new NumberListener())
+  eb.post(1)
+  eb.post(2L)
 }
 
 class IntListener {
