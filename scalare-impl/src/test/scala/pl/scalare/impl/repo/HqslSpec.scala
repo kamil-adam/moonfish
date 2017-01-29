@@ -1,11 +1,9 @@
 package pl.scalare.impl.repo
 
+import org.hsqldb.jdbc.JDBCPool
 import org.scalatest.FunSpec
-
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
-
-import org.hsqldb.jdbc.JDBCPool
 
 class HqslSpec extends FunSpec {
   val url = "jdbc:hsqldb:file:testdb"
@@ -39,7 +37,7 @@ class HqslSpec extends FunSpec {
 
         h.close();
       }
-      
+
       it("TABLE_TYPES") {
         val dbi = new DBI(ds);
         val h = dbi.open();

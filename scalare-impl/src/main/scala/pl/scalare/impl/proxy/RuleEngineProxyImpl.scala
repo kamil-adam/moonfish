@@ -1,8 +1,7 @@
 package pl.scalare.impl.proxy
 
-/**
-  * Created by enkime on 28.01.17.
-  */
-class RuleEngine {
+import javax.ws.rs.client.Client
+
+class RuleEngineProxyImpl(val client: Client) {
 
 }

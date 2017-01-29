@@ -1,13 +1,8 @@
 package pl.scalare.main.client
 
-import com.typesafe.scalalogging.LazyLogging
-
-import io.dropwizard.Application
 import io.dropwizard.client.HttpClientBuilder
-import io.dropwizard.setup.Bootstrap
-import io.dropwizard.setup.Environment
+import io.dropwizard.setup.{Bootstrap, Environment}
 import pl.scalare.main.ApplicationLogging
-import io.dropwizard.client.JerseyClientBuilder
 
 class ClientApplication extends ApplicationLogging[ClientConfiguration] {
 
@@ -20,10 +15,6 @@ class ClientApplication extends ApplicationLogging[ClientConfiguration] {
 
     val httpClient = new HttpClientBuilder(e).using(c.httpClient).build("httpClient")
     //    environment.jersey().register(new ExternalServiceResource(httpClient));
-
-    val jerseyClient = new JerseyClientBuilder(e).using(c.jerseyClient)
-      .build("jerseyClient")
-    //    environment.jersey().register(new ExternalServiceResource(client));
 
   }
 

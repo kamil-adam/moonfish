@@ -1,4 +1,4 @@
-package pl.scalare.impl.repo.data
+package pl.scalare.impl.repo
 
 import org.h2.jdbcx.JdbcConnectionPool
 

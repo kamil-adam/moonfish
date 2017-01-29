@@ -1,11 +1,11 @@
 package pl.scalare.main.client
 
-import scala.beans.BeanProperty
+import javax.validation.Valid
 
 import io.dropwizard.Configuration
 import io.dropwizard.client.HttpClientConfiguration
-import io.dropwizard.client.JerseyClientConfiguration
-import javax.validation.Valid
+
+import scala.beans.BeanProperty
 
 class ClientConfiguration extends Configuration {
   //  @NotNull
@@ -13,9 +13,5 @@ class ClientConfiguration extends Configuration {
   @Valid
   var httpClient = new HttpClientConfiguration()
 
-  //  @NotNull
-  @BeanProperty
-  @Valid
-  var jerseyClient = new JerseyClientConfiguration()
 
 }

@@ -1,8 +1,9 @@
 package pl.scalare.rest
 
-/**
-  * Created by enkime on 29.01.17.
-  */
-class OmnubusResource {
+import javax.ws.rs.client.Client
 
+import pl.scalare.core.client.{OmnibusProxy, OmnibusProxyImpl}
+
+class OmnibusResource (val proxy : OmnibusProxy) {
+  def this (client : Client) = this(new OmnibusProxyImpl(client))
 }

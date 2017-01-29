@@ -1,4 +1,4 @@
-package pl.scalare.impl.repo.data
+package pl.scalare.impl.repo
 
 import javax.sql.{ConnectionPoolDataSource, DataSource, XADataSource}
 

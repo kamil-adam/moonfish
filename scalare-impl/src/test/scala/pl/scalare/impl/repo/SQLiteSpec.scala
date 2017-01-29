@@ -1,15 +1,9 @@
 package pl.scalare.impl.repo
 
 import org.scalatest.FunSpec
-import org.h2.jdbcx.JdbcConnectionPool
-
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
-import java.sql.DriverManager
-import java.io.IOException
-import java.sql.Connection
-import org.sqlite.SQLiteJDBCLoader
-import org.sqlite.SQLiteDataSource
+import org.sqlite.{SQLiteDataSource, SQLiteJDBCLoader}
 
 class SQLiteSpec extends FunSpec {
   val url = "jdbc:sqlite:jdbc.sqlite"

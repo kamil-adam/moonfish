@@ -1,5 +1,5 @@
 package pl.scalare.core.client
 
-trait CacheProxy {
+trait OmnibusProxy {
 
 }

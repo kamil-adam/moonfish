@@ -1,7 +1,7 @@
 package pl.scalare.main
 
-import com.codahale.metrics.health.HealthCheck.Result
 import com.codahale.metrics.health.HealthCheck
+import com.codahale.metrics.health.HealthCheck.Result
 
 class TemplateHealthCheck(val template: String) extends HealthCheck {
 

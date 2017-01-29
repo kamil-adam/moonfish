@@ -1,4 +1,6 @@
-package pl.writeonly.dropservices;
+package pl.writeonly.dropservices
+
+;
 
 import com.google.common.eventbus._;
 
@@ -19,6 +21,7 @@ class IntListener {
   }
 
 }
+
 class NumberListener {
 
   @Subscribe

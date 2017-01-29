@@ -1,15 +1,14 @@
 package pl.scalare.impl.repo
 
-import org.scalatest.FunSpec
 import org.h2.jdbcx.JdbcConnectionPool
-
+import org.scalatest.FunSpec
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
 
 class H2Spec extends FunSpec {
   val url = "jdbc:h2:mem:test"
   describe(url) {
-    val ds = JdbcConnectionPool.create(url,"username","password");
+    val ds = JdbcConnectionPool.create(url, "username", "password");
 
     describe("select") {
       it("SCHEMATA") {

@@ -1,6 +1,7 @@
 package pl.scalare.japi
 
 import org.hibernate.validator.constraints.Length
+
 import scala.beans.BeanProperty
 
 class Information(@BeanProperty var id: Long, @BeanProperty @Length(max = 3) var content: String) {
