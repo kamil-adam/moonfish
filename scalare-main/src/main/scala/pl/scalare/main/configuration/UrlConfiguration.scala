@@ -1,4 +1,4 @@
-package pl.scalare.main.client
+package pl.scalare.main.configuration
 
 import javax.validation.Valid
 

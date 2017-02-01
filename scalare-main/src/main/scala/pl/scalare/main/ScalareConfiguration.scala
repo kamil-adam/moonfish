@@ -6,16 +6,19 @@ import io.dropwizard.Configuration
 import io.dropwizard.client.JerseyClientConfiguration
 import io.dropwizard.db.DataSourceFactory
 import org.hibernate.validator.constraints.NotEmpty
-import pl.scalare.main.client.UrlConfiguration
+import pl.scalare.main.configuration.{TemplateHCConfiguration, UrlConfiguration}
 
 import scala.beans.BeanProperty
 
-class ScalareConfiguration(
-                            @BeanProperty @NotEmpty var template: String,
-                            @BeanProperty @NotEmpty var defaultName: String = "Stranger")
-  extends Configuration {
+class ScalareConfiguration extends Configuration {
 
-  def this() = this(null, null)
+  @BeanProperty @NotEmpty
+  var defaultName: String = "Stranger"
+
+  @BeanProperty
+  @NotEmpty
+  @Valid
+  var template = new TemplateHCConfiguration()
 
   @BeanProperty
   @Valid

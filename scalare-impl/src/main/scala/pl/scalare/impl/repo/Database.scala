@@ -35,6 +35,8 @@ object Database {
   def prefix = "SELECT * FROM "
 
   def folder = "database/"
+
+
 }
 
 trait DatabaseApp extends AppLogging {
