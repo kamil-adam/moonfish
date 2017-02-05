@@ -12,8 +12,10 @@ import io.dropwizard.jetty.setup.ServletEnvironment
 import io.dropwizard.lifecycle.setup.LifecycleEnvironment
 import io.dropwizard.setup.{AdminEnvironment, Bootstrap, Environment}
 import io.dropwizard.views.ViewBundle
-import pl.scalare.main.healthchecks.TemplateHealthCheck
-import pl.scalare.rest.{DatabaseResource, EventResource, OmnibusResource, ScalareResource}
+import pl.scalare.main.healthchecks.{EventHealthCkeck, TemplateHealthCheck}
+import pl.scalare.rest.tasks.SnapshotTask
+import pl.scalare.rest.resources.{DatabaseResource, EventResource, OmnibusResource, ScalareResource}
+import pl.scalare.rest.resources.{EventResource, OmnibusResource, ScalareResource}
 
 class ScalareApplication extends Application[ScalareConfiguration] with LazyLogging {
 
@@ -28,6 +30,8 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
         return super.getViewConfiguration(c)
       }
     })
+
+    //    bootstrap.addCommand(new ScalareCommand())
   }
 
   override def run(c: ScalareConfiguration, e: Environment) {
@@ -45,6 +49,9 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
     //metric
     run(i, e.healthChecks())
     run(i, e.metrics())
+    //other
+    //    e.jersey().register(new IllegalArgumentExceptionMapper(e.metrics()));
+    //    e.jersey().register(new Resource());
   }
 
   def run(i: Injector, e: JerseyEnvironment): Unit = {
@@ -55,7 +62,7 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
   }
 
   def run(i: Injector, e: AdminEnvironment): Unit = {
-
+    e.addTask(i.getInstance(classOf[SnapshotTask]))
   }
 
   def run(i: Injector, e: LifecycleEnvironment): Unit = {
@@ -67,11 +74,12 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
   }
 
   def run(i: Injector, e: MetricRegistry): Unit = {
-
   }
 
   def run(i: Injector, e: HealthCheckRegistry): Unit = {
+    e.register("event", i.getInstance(classOf[EventHealthCkeck]))
     e.register("template", i.getInstance(classOf[TemplateHealthCheck]))
+
   }
 
 }

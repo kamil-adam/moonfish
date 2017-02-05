@@ -15,8 +15,6 @@ class H2Database extends Database {
 
   override def mem = "jdbc:h2:mem:" + file
 
-  override def file = "jdbc.h2"
-
   def tcp = "jdbc:h2:tsc:" + file
 
   override def ds = JdbcConnectionPool.create(url, "username", "password");
@@ -24,6 +22,8 @@ class H2Database extends Database {
   def cpds = JdbcConnectionPool.create(url, "username", "password");
 
   override def url = "jdbc:h2:" + file
+
+  override def file = "jdbc.h2"
 
 }
 

@@ -14,7 +14,7 @@ class DatabaseRepoImpl extends DatabaseRepo {
 
   val map = Map(("h2", h2), ("hsql", hsql), ("derby", derby), ("sqlite", sqlite))
 
-  override def database = List("h2", "hsql", "derby", "sqlite")
+  override def databases = Array(Map("name" -> "h2"), Map("name" -> "hsql"), Map("name" -> "derby"), Map("name" -> "sqlite"))
 
   override def information(database: String) = map.get(database).get.tables
 }

@@ -3,7 +3,7 @@
   <parent>
     <artifactId>scalare</artifactId>
     <groupId>pl.writeonly</groupId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.6-SNAPSHOT</version>
   </parent>
   <modelVersion>4.0.0</modelVersion>
   <artifactId>scalare-main</artifactId>

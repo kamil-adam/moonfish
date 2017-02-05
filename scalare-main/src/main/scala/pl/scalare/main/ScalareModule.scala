@@ -7,7 +7,7 @@ import io.dropwizard.setup.Environment
 import pl.scalare.core.client.{OmnibusProxy, OmnibusProxyImpl}
 import pl.scalare.core.repo.{DatabaseRepo, EventRepo, SnapshotRepo}
 import pl.scalare.impl.repo.{DatabaseRepoImpl, EventRepoImpl, SnapshotRepoImpl}
-import pl.scalare.rest.ScalareResource
+import pl.scalare.rest.resources.ScalareResource
 
 
 class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends AbstractModule {

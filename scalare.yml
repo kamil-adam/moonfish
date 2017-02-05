@@ -8,3 +8,5 @@ sqlite:
 omnibusUrl:
  host: "localhost"
  port: 8082
+server:
+  rootPath: /resources/

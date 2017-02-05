@@ -5,7 +5,7 @@ import pl.scalare.core.model.Event
 trait EventRepo {
   def createSomethingTable()
 
-  def insert( event: Event)
+  def insert(event: Event)
 
   def insert(id: Int, uuid: String, json: String)
 

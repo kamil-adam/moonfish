@@ -10,19 +10,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: com.typesafe.scala-logging:scala-logging_2.11:3.5.0" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.8" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.8" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
-    <orderEntry type="library" name="Maven: org.scalatest:scalatest_2.11:3.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.scalactic:scalactic_2.11:3.0.1" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.5" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4" level="project" />
-    <orderEntry type="library" name="Maven: org.scalatra.scalate:scalate-core_2.11:1.8.0" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.8" level="project" />
-    <orderEntry type="library" name="Maven: org.scalatra.scalate:scalate-util_2.11:1.8.0" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-validation:1.0.5" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-util:1.0.5" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-validation:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-util:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.8" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:19.0" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.1" level="project" />
@@ -32,5 +21,11 @@
     <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.2.1.Final" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:javax.el:3.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.scalatest:scalatest_2.11:3.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.8" level="project" />
+    <orderEntry type="library" name="Maven: org.scalactic:scalactic_2.11:3.0.1" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.8" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.5" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4" level="project" />
   </component>
 </module>

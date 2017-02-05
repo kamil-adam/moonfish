@@ -5,7 +5,7 @@
 
     <artifactId>scalare</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.6-SNAPSHOT</version>
 
     <properties>
         <encoding>UTF-8</encoding>
@@ -14,8 +14,8 @@
         <scala.version>2.11.8</scala.version>
         <scala-logging.version>3.5.0</scala-logging.version>
         <scalatest.version>3.0.1</scalatest.version>
-        <scalare.version>0.0.1-SNAPSHOT</scalare.version>
-        <dropwizard.version>1.0.5</dropwizard.version>
+        <scalare.version>1.0.6-SNAPSHOT</scalare.version>
+        <dropwizard.version>1.0.6</dropwizard.version>
     </properties>
 
     <modules>
@@ -24,7 +24,6 @@
         <module>scalare-impl</module>
         <module>scalare-japi</module>
         <module>scalare-rest</module>
-        <module>scalare-view</module>
         <module>scalare-main</module>
     </modules>
 
