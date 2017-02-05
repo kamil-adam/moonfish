@@ -40,7 +40,7 @@
               <transformers>
                 <transformer />
                 <transformer>
-                  <mainClass>pl.scalare.main.ScalareApplication</mainClass>
+                  <mainClass>pl.scalare.main.ScalareApp</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -74,6 +74,7 @@
     </plugins>
   </build>
   <properties>
+    <guice.version>4.1.0</guice.version>
     <encoding>UTF-8</encoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>

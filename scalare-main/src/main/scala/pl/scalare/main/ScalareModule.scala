@@ -33,6 +33,12 @@ class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends Abs
     new OmnibusProxyImpl(omnibusClient)
   }
 
+  @Provides
+  def proviceEventRepoImpl = {
+    val factory = new DBIFactory()
+    val sqlite = factory.build(e, c.sqlite, "sqlite")
+    sqlite.onDemand(classOf[EventRepoImpl]);
+  }
 
   override def configure(): Unit = {
     bind(classOf[DatabaseRepo]).to(classOf[DatabaseRepoImpl]).asEagerSingleton()

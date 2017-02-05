@@ -17,8 +17,8 @@ class ScalareConfiguration extends Configuration {
   var defaultName: String = "Stranger"
 
   @BeanProperty
-//  @NotEmpty
-//  @Valid
+  //  @NotEmpty
+  //  @Valid
   var template1 = new TemplateHCConfiguration()
 
   @BeanProperty

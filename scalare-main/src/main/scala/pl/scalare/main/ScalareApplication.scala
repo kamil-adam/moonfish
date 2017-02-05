@@ -1,18 +1,19 @@
 package pl.scalare.main
 
+import java.util.{Map => jMap}
+
+import com.codahale.metrics.MetricRegistry
+import com.codahale.metrics.health.HealthCheckRegistry
 import com.google.inject.{Guice, Injector}
 import com.typesafe.scalalogging.LazyLogging
 import io.dropwizard.Application
-import io.dropwizard.client.JerseyClientBuilder
-import io.dropwizard.jdbi.DBIFactory
-import io.dropwizard.setup.{Bootstrap, Environment}
+import io.dropwizard.jersey.setup.JerseyEnvironment
+import io.dropwizard.jetty.setup.ServletEnvironment
+import io.dropwizard.lifecycle.setup.LifecycleEnvironment
+import io.dropwizard.setup.{AdminEnvironment, Bootstrap, Environment}
 import io.dropwizard.views.ViewBundle
-import pl.scalare.rest.{DatabaseResource, OmnibusResource, ScalareResource}
-import pl.scalare.util.AppLogging
-
-object ScalareApplication extends AppLogging {
-  new ScalareApplication().run(args: _*);
-}
+import pl.scalare.main.healthchecks.TemplateHealthCheck
+import pl.scalare.rest.{DatabaseResource, EventResource, OmnibusResource, ScalareResource}
 
 class ScalareApplication extends Application[ScalareConfiguration] with LazyLogging {
 
@@ -23,7 +24,7 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
 
     bootstrap.addBundle(new ViewBundle[ScalareConfiguration]())
     bootstrap.addBundle(new ViewBundle[ScalareConfiguration]() {
-      override def getViewConfiguration(c: ScalareConfiguration): java.util.Map[String, java.util.Map[String, String]] = {
+      override def getViewConfiguration(c: ScalareConfiguration): jMap[String, jMap[String, String]] = {
         return super.getViewConfiguration(c)
       }
     })
@@ -33,19 +34,44 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
     logger info "run"
     val i = Guice.createInjector(new ScalareModule(c, e))
     run(i, e)
-
-    val factory = new DBIFactory()
-    val sqlite = factory.build(e, c.sqlite, "sqlite")
-    ////        val dao = jdbi.onDemand(classOf[UserDAO]);
-    //    //    environment.jersey().register(new UserResource(dao));
-
   }
 
   def run(i: Injector, e: Environment) {
-    e.jersey().register(i.getInstance(classOf[ScalareResource]))
-    e.jersey().register(i.getInstance(classOf[DatabaseResource]))
-    e.jersey().register(i.getInstance(classOf[OmnibusResource]))
-
-    e.healthChecks().register("template", i.getInstance(classOf[TemplateHealthCheck]))
+    //environment
+    run(i, e.jersey())
+    run(i, e.lifecycle())
+    run(i, e.servlets())
+    run(i, e.admin())
+    //metric
+    run(i, e.healthChecks())
+    run(i, e.metrics())
   }
+
+  def run(i: Injector, e: JerseyEnvironment): Unit = {
+    e.register(i.getInstance(classOf[ScalareResource]))
+    e.register(i.getInstance(classOf[DatabaseResource]))
+    e.register(i.getInstance(classOf[EventResource]))
+    e.register(i.getInstance(classOf[OmnibusResource]))
+  }
+
+  def run(i: Injector, e: AdminEnvironment): Unit = {
+
+  }
+
+  def run(i: Injector, e: LifecycleEnvironment): Unit = {
+
+  }
+
+  def run(i: Injector, e: ServletEnvironment): Unit = {
+
+  }
+
+  def run(i: Injector, e: MetricRegistry): Unit = {
+
+  }
+
+  def run(i: Injector, e: HealthCheckRegistry): Unit = {
+    e.register("template", i.getInstance(classOf[TemplateHealthCheck]))
+  }
+
 }
