@@ -7,8 +7,6 @@ import io.dropwizard.client.JerseyClientBuilder
 import io.dropwizard.jdbi.DBIFactory
 import io.dropwizard.setup.{Bootstrap, Environment}
 import io.dropwizard.views.ViewBundle
-import pl.scalare.core.repo.DatabaseRepo
-import pl.scalare.impl.repo.DatabaseRepoImpl
 import pl.scalare.rest.{DatabaseResource, OmnibusResource, ScalareResource}
 import pl.scalare.util.AppLogging
 
@@ -33,26 +31,20 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
 
   override def run(c: ScalareConfiguration, e: Environment) {
     logger info "run"
-    val i = Guice.createInjector(new ScalareModule(c))
-    run(i,e)
-
-    val scalare = new ScalareResource("", c.defaultName)
-    e.jersey().register(scalare)
-
-
+    val i = Guice.createInjector(new ScalareModule(c, e))
+    run(i, e)
 
     val factory = new DBIFactory()
     val sqlite = factory.build(e, c.sqlite, "sqlite")
     ////        val dao = jdbi.onDemand(classOf[UserDAO]);
     //    //    environment.jersey().register(new UserResource(dao));
 
-    val omnibusClient = new JerseyClientBuilder(e).using(c.omnibusClient).build("omnibusClient")
-    val omnibus = new OmnibusResource(omnibusClient)
-    e.jersey().register(omnibus)
   }
 
-  def run(i :Injector, e : Environment ) {
+  def run(i: Injector, e: Environment) {
+    e.jersey().register(i.getInstance(classOf[ScalareResource]))
     e.jersey().register(i.getInstance(classOf[DatabaseResource]))
+    e.jersey().register(i.getInstance(classOf[OmnibusResource]))
 
     e.healthChecks().register("template", i.getInstance(classOf[TemplateHealthCheck]))
   }

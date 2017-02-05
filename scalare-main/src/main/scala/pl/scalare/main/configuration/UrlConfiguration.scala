@@ -7,8 +7,8 @@ import scala.beans.BeanProperty
 class UrlConfiguration {
   @BeanProperty
   @Valid
-  var host : String = _
+  var host: String = _
   @BeanProperty
   @Valid
-  var port : Int = _
+  var port: Int = _
 }

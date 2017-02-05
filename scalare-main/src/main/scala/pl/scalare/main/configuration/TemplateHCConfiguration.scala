@@ -4,12 +4,12 @@ import javax.validation.Valid
 
 import scala.beans.BeanProperty
 
-/**
-  * Created by enkime on 01.02.17.
-  */
 class TemplateHCConfiguration {
   @BeanProperty
-  @Valid
-  var template : String = _
+//  @Valid
+  var templateString: String = _
+
+  @BeanProperty
+  var template2String: String = _
 
 }

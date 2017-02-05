@@ -18,6 +18,8 @@ class HsqlDatabase extends Database {
 
   override def url = "jdbc:hsqldb:file:" + file + ";ifexists=true"
 
+  override def file = "jdbc.hsqldb"
+
   override def ds = {
     val ds = new JDBCPool()
     ds.setDatabase(mem)
@@ -27,8 +29,6 @@ class HsqlDatabase extends Database {
   }
 
   def mem = "jdbc:hsqldb:mem:" + file
-
-  override def file = "jdbc.hsqldb"
 }
 
 object HsqlDatabase extends DatabaseApp {

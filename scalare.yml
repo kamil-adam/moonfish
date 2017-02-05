@@ -1,12 +1,10 @@
-template: Hello, %s!
 defaultName: Stranger
+template1:
+  templateString: Hello, %s!
+  template2String: Hello, %s!
 sqlite:
   driverClass: "org.sqlite.JDBC"
   url: "jdbc:sqlite:jdbc.sqlite"
-
 omnibusUrl:
  host: "localhost"
  port: 8082
-
-
-

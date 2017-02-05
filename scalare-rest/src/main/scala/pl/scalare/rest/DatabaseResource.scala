@@ -1,6 +1,5 @@
 package pl.scalare.rest
 
-import java.util
 import javax.inject.Inject
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.{GET, Path, PathParam, Produces}
@@ -10,13 +9,13 @@ import pl.scalare.core.repo.DatabaseRepo
 
 @Path("/rest/database")
 @Produces(Array(MediaType.APPLICATION_JSON))
-class DatabaseResource(@Inject val repo: DatabaseRepo) {
+class DatabaseResource @Inject()(@Inject val repo: DatabaseRepo) {
 
   @GET()
   @Path("/")
   @Timed
-//  def database:util.List[String] = repo.database.asJava
-  def database  = repo.database.toArray
+  //  def database:util.List[String] = repo.database.asJava
+  def database = repo.database.toArray
 
   @GET()
   @Path("/{database}/information")

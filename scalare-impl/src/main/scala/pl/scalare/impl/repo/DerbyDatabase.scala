@@ -1,4 +1,5 @@
 package pl.scalare.impl.repo
+
 import javax.sql.DataSource
 
 class DerbyDatabase extends Database {

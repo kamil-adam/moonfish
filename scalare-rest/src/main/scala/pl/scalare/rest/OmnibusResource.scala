@@ -7,6 +7,6 @@ import javax.ws.rs.client.Client
 import pl.scalare.core.client.{OmnibusProxy, OmnibusProxyImpl}
 
 @Path("/rest/omnibus")
-class OmnibusResource (@Inject val proxy : OmnibusProxy) {
-  def this (client : Client) = this(new OmnibusProxyImpl(client))
+class OmnibusResource @Inject()(@Inject val proxy: OmnibusProxy) {
+  def this(client: Client) = this(new OmnibusProxyImpl(client))
 }
