@@ -2,7 +2,7 @@ package pl.scalare.impl.repo
 
 import org.hsqldb.jdbc.JDBCPool
 
-class HsqlDatabase extends Database {
+class HsqlDatabase extends DatabaseInfo {
   //  def tables = Set(
   //    "ADMINISTRABLE_ROLE_AUTHORIZATIONS",
   //    "APPLICABLE_ROLES",

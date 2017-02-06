@@ -2,7 +2,7 @@ package pl.scalare.impl.repo
 
 import org.h2.jdbcx.JdbcConnectionPool
 
-class H2Database extends Database {
+class H2Database extends DatabaseInfo {
 
   override def schema = "INFORMATION_SCHEMA."
 

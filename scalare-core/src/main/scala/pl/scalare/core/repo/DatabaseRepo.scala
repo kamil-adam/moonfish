@@ -1,8 +1,10 @@
 package pl.scalare.core.repo
 
+import pl.scalare.core.model.Database
+
 trait DatabaseRepo {
 
-  def databases:Array[Map[String,String]]
+  def databases:Array[Database]
 
   def information(database: String) = Iterable(database)
 }

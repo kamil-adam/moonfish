@@ -86,14 +86,6 @@
     <orderEntry type="library" name="Maven: javax.cache:cache-api:1.0.0" level="project" />
     <orderEntry type="library" name="Maven: org.jetbrains:annotations:13.0" level="project" />
     <orderEntry type="library" name="Maven: org.gridgain:ignite-shmem:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views-mustache:1.0.6" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views:1.0.6" level="project" />
-    <orderEntry type="library" name="Maven: com.github.spullara.mustache.java:compiler:0.9.4" level="project" />
-    <orderEntry type="library" name="Maven: org.scalatra.scalate:scalate-core_2.11:1.8.0" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.8" level="project" />
-    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.8" level="project" />
-    <orderEntry type="library" name="Maven: org.scalatra.scalate:scalate-util_2.11:1.8.0" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-auth:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-core:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-jackson:1.0.6" level="project" />
@@ -151,5 +143,13 @@
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-access:1.1.7" level="project" />
     <orderEntry type="library" name="Maven: net.sourceforge.argparse4j:argparse4j:0.7.0" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty.toolchain.setuid:jetty-setuid-java:1.0.3" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views-mustache:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views:1.0.6" level="project" />
+    <orderEntry type="library" name="Maven: com.github.spullara.mustache.java:compiler:0.9.4" level="project" />
+    <orderEntry type="library" name="Maven: org.scalatra.scalate:scalate-core_2.11:1.8.0" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.8" level="project" />
+    <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.8" level="project" />
+    <orderEntry type="library" name="Maven: org.scalatra.scalate:scalate-util_2.11:1.8.0" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.21" level="project" />
   </component>
 </module>

@@ -72,6 +72,7 @@
     <orderEntry type="library" name="Maven: org.scala-lang:scala-reflect:2.11.8" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-xml_2.11:1.0.5" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4" level="project" />
+    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-auth:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views-mustache:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-views:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: com.github.spullara.mustache.java:compiler:0.9.4" level="project" />
@@ -79,7 +80,6 @@
     <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.8" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.8" level="project" />
     <orderEntry type="library" name="Maven: org.scalatra.scalate:scalate-util_2.11:1.8.0" level="project" />
-    <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-auth:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: pl.writeonly:scalare-view:1.0.6-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-core:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-util:1.0.6" level="project" />

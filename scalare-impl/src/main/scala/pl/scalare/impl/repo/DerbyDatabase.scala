@@ -2,7 +2,7 @@ package pl.scalare.impl.repo
 
 import javax.sql.DataSource
 
-class DerbyDatabase extends Database {
+class DerbyDatabase extends DatabaseInfo {
   override def schema: String = ???
 
   override def tables: Set[String] = ???

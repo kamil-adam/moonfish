@@ -2,7 +2,7 @@ package pl.scalare.impl.repo
 
 import org.sqlite.SQLiteDataSource
 
-class SQLiteDatabase extends Database {
+class SQLiteDatabase extends DatabaseInfo {
 
   override def schema = ""
 

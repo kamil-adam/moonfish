@@ -1,18 +1,26 @@
 package pl.scalare.main
 
+import java.security.Principal
 import java.util.{Map => jMap}
 
 import com.codahale.metrics.MetricRegistry
 import com.codahale.metrics.health.HealthCheckRegistry
+import com.google.common.collect.Lists
 import com.google.inject.{Guice, Injector}
 import com.typesafe.scalalogging.LazyLogging
 import io.dropwizard.Application
+import io.dropwizard.auth.{AuthDynamicFeature, AuthFilter, AuthValueFactoryProvider}
+import io.dropwizard.auth.basic.BasicCredentialAuthFilter
+import io.dropwizard.auth.chained.ChainedAuthFilter
+import io.dropwizard.auth.oauth.OAuthCredentialAuthFilter
 import io.dropwizard.jersey.setup.JerseyEnvironment
 import io.dropwizard.jetty.setup.ServletEnvironment
 import io.dropwizard.lifecycle.setup.LifecycleEnvironment
 import io.dropwizard.setup.{AdminEnvironment, Bootstrap, Environment}
 import io.dropwizard.views.ViewBundle
+import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature
 import pl.scalare.main.healthchecks.{EventHealthCkeck, TemplateHealthCheck}
+import pl.scalare.rest.User
 import pl.scalare.rest.tasks.SnapshotTask
 import pl.scalare.rest.resources.{DatabaseResource, EventResource, OmnibusResource, ScalareResource}
 import pl.scalare.rest.resources.{EventResource, OmnibusResource, ScalareResource}
@@ -52,13 +60,22 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
     //other
     //    e.jersey().register(new IllegalArgumentExceptionMapper(e.metrics()));
     //    e.jersey().register(new Resource());
+
   }
 
   def run(i: Injector, e: JerseyEnvironment): Unit = {
+
+    e.register(i.getInstance(classOf[AuthDynamicFeature]))
+    e.register(classOf[RolesAllowedDynamicFeature]);
+    //If you want to use @Auth to inject a custom Principal type into your resource
+    e.register(new AuthValueFactoryProvider.Binder(classOf[User]));
+
+    //
     e.register(i.getInstance(classOf[ScalareResource]))
     e.register(i.getInstance(classOf[DatabaseResource]))
     e.register(i.getInstance(classOf[EventResource]))
     e.register(i.getInstance(classOf[OmnibusResource]))
+
   }
 
   def run(i: Injector, e: AdminEnvironment): Unit = {
