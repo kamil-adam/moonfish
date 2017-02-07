@@ -29,10 +29,6 @@
             <groupId>pl.writeonly</groupId>
             <artifactId>scalare-rest</artifactId>
         </dependency>
-        <dependency>
-            <groupId>pl.writeonly</groupId>
-            <artifactId>scalare-view</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>io.dropwizard</groupId>

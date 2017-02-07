@@ -80,7 +80,6 @@
     <orderEntry type="library" name="Maven: org.scala-lang:scala-compiler:2.11.8" level="project" />
     <orderEntry type="library" name="Maven: org.scala-lang:scala-library:2.11.8" level="project" />
     <orderEntry type="library" name="Maven: org.scalatra.scalate:scalate-util_2.11:1.8.0" level="project" />
-    <orderEntry type="library" name="Maven: pl.writeonly:scalare-view:1.0.6-SNAPSHOT" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-core:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: io.dropwizard:dropwizard-util:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.7.8" level="project" />
