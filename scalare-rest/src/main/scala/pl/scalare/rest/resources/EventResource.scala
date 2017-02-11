@@ -12,13 +12,13 @@ import pl.scalare.rest.views.EventsView
 @Produces(Array(MediaType.APPLICATION_JSON))
 class EventResource @Inject()(@Inject val repo: EventRepo) {
   @GET()
-  @Path("/")
-  @Timed
-  def events = repo.getAll.toArray
-
-  @GET()
   @Path("/view")
   @Timed
   def eventsView = new EventsView(events)
+
+  @GET()
+  @Path("/")
+  @Timed
+  def events = repo.getAll.toArray
 
 }

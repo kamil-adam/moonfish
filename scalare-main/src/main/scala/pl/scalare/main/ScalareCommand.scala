@@ -2,7 +2,6 @@ package pl.scalare.main
 
 import javax.inject.Inject
 
-import io.dropwizard.Configuration
 import io.dropwizard.cli.Command
 import io.dropwizard.setup.Bootstrap
 import net.sourceforge.argparse4j.inf.{Namespace, Subparser}

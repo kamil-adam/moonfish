@@ -1,13 +1,13 @@
-package pl.scalare.impl.repo
+package pl.scalare.impl.repo.database
 
 import javax.sql.{ConnectionPoolDataSource, DataSource, XADataSource}
 
 import org.skife.jdbi.v2.DBI
 import pl.scalare.util.AppLogging
 
-trait DatabaseInfo {
+import scala.collection.JavaConverters.{asScalaBufferConverter, mapAsScalaMapConverter}
 
-  def selects: Map[String, String] = tables.map(t => (t, DatabaseInfo.prefix + schema + t)).toMap
+trait DatabaseInfo {
 
   def schema: String
 
@@ -20,6 +20,18 @@ trait DatabaseInfo {
   def mem: String
 
   def ds: DataSource
+
+  def select(key: String) = {
+    val sql = selects.get(key).get
+    val dbi = new DBI(ds)
+    val h = dbi.open()
+    val list = h.select(sql)
+    h.close()
+    list.asScala.map(a => a.asScala.toMap).toIterable
+
+  }
+
+  def selects: Map[String, String] = tables.map(t => (t, DatabaseInfo.prefix + schema + t)).toMap
 
 }
 
@@ -45,12 +57,7 @@ trait DatabaseApp extends AppLogging {
     db.selects.values.foreach(v => logger.info(v))
     val ds = db.ds
     val dbi = new DBI(ds)
-    db.selects.values.map(v => {
-      val h = dbi.open()
-      val list = h.select(v)
-      h.close()
-      list
-    }).foreach { x => logger.info("" + x) }
+
   }
 }
   

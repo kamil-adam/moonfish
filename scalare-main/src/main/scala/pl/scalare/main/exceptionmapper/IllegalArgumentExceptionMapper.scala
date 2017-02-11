@@ -1,7 +1,7 @@
 package pl.scalare.main.exceptionmapper
 
-import javax.ws.rs.core.{MediaType, Response}
 import javax.ws.rs.core.Response.Status
+import javax.ws.rs.core.{MediaType, Response}
 import javax.ws.rs.ext.ExceptionMapper
 
 import com.codahale.metrics.{Meter, MetricRegistry}

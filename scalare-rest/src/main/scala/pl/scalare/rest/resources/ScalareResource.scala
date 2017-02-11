@@ -30,5 +30,5 @@ class ScalareResource(val template: String, val defaultName: String) {
   @RolesAllowed(Array("ADMIN"))
   @GET
   @Path("/user")
-  def getSecretPlan(@Auth  user: User) = user
+  def getSecretPlan(@Auth user: User) = user
 }

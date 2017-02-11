@@ -4,7 +4,7 @@ import javax.inject.Inject
 
 import com.codahale.metrics.health.HealthCheck
 import com.codahale.metrics.health.HealthCheck.Result
-import pl.scalare.impl.repo.SQLiteDatabase
+import pl.scalare.impl.repo.database.SQLiteDatabase
 
 class EventHealthCkeck @Inject()(val database: SQLiteDatabase) extends HealthCheck {
 

@@ -4,6 +4,6 @@ import java.security.Principal
 
 import scala.beans.BeanProperty
 
-class User(@BeanProperty val name:String) extends Principal {
+class User(@BeanProperty val name: String) extends Principal {
 
 }

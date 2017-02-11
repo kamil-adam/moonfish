@@ -1,4 +1,4 @@
-package pl.scalare.impl.repo
+package pl.scalare.impl.repo.database
 
 import org.h2.jdbcx.JdbcConnectionPool
 
@@ -19,11 +19,11 @@ class H2Database extends DatabaseInfo {
 
   override def ds = JdbcConnectionPool.create(url, "username", "password");
 
-  def cpds = JdbcConnectionPool.create(url, "username", "password");
-
   override def url = "jdbc:h2:" + file
 
   override def file = "jdbc.h2"
+
+  def cpds = JdbcConnectionPool.create(url, "username", "password");
 
 }
 

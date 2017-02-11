@@ -1,4 +1,4 @@
-package pl.scalare.impl.repo
+package pl.scalare.impl.repo.database
 
 import javax.sql.DataSource
 
