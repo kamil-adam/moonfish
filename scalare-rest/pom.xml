@@ -15,7 +15,6 @@
         <encoding>UTF-8</encoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <scala.version>2.11.8</scala.version>
         <scala-logging.version>3.5.0</scala-logging.version>
         <scalatest.version>3.0.1</scalatest.version>
         <scalate.version>1.8.0</scalate.version>
