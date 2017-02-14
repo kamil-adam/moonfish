@@ -8,7 +8,7 @@ import com.codahale.metrics.annotation.Timed
 import pl.scalare.core.repo.EventRepo
 import pl.scalare.rest.views.EventsView
 
-@Path("/events")
+@Path("/event")
 @Produces(Array(MediaType.APPLICATION_JSON))
 class EventResource @Inject()(@Inject val repo: EventRepo) {
   @GET()

@@ -25,6 +25,6 @@ class SelectRepoFake extends SelectRepo {
 
   override def sql(database: String, key: String) = selects(database).get(key).get
 
-  override def query(database: String, key: String) = get(database).select(key)
+  override def select(database: String, key: String) = get(database).select(key)
 
 }

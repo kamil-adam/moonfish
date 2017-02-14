@@ -6,6 +6,7 @@ import org.skife.jdbi.v2.DBI
 import pl.scalare.util.AppLogging
 
 import scala.collection.JavaConverters.{asScalaBufferConverter, mapAsScalaMapConverter}
+import scala.util.control.NonFatal
 
 trait DatabaseInfo {
 
@@ -22,13 +23,16 @@ trait DatabaseInfo {
   def ds: DataSource
 
   def select(key: String) = {
+    try {
     val sql = selects.get(key).get
     val dbi = new DBI(ds)
     val h = dbi.open()
     val list = h.select(sql)
     h.close()
     list.asScala.map(a => a.asScala.toMap).toIterable
-
+    } catch {
+      case NonFatal(e) => throw new IllegalArgumentException(key, e)
+    }
   }
 
   def selects: Map[String, String] = tables.map(t => (t, DatabaseInfo.prefix + schema + t)).toMap

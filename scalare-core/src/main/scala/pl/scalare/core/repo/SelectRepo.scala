@@ -8,5 +8,5 @@ trait SelectRepo {
 
   def sql(database: String, key: String): String
 
-  def query(database: String, key: String): Iterable[Map[String, AnyRef]]
+  def select(database: String, key: String): Iterable[Map[String, AnyRef]]
 }

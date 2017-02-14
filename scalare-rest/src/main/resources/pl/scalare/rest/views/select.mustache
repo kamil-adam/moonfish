@@ -1,0 +1,19 @@
+<h1>select</h1>
+
+{{key}}
+{{#table}}
+<table>
+    <tr>
+        {{#cell}}
+            <th>{{value}}</th>
+        {{/cell}}
+    </tr>
+    {{#row}}
+        <tr>
+            {{#cell}}
+                <td>{{value}}</td>
+            {{/cell}}
+        </tr>
+    {{/row}}
+</table>
+{{/table}}
