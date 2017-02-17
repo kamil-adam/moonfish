@@ -8,11 +8,12 @@ import io.dropwizard.auth.oauth.OAuthCredentialAuthFilter
 import io.dropwizard.auth.{AuthDynamicFeature, AuthValueFactoryProvider}
 import io.dropwizard.client.JerseyClientBuilder
 import io.dropwizard.jdbi.DBIFactory
+import io.dropwizard.server.AbstractServerFactory
 import io.dropwizard.setup.Environment
 import pl.scalare.core.client.{OmnibusProxy, OmnibusProxyImpl}
 import pl.scalare.core.repo.{EventRepo, SelectRepo, SnapshotRepo}
 import pl.scalare.impl.repo.{EventRepoImpl, SelectRepoFake, SnapshotRepoImpl}
-import pl.scalare.rest.User
+import pl.scalare.rest.{RuntimeConfiguration, User}
 import pl.scalare.rest.resources.ScalareResource
 
 
@@ -23,6 +24,25 @@ class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends Abs
 
   @Provides
   def provideConfiguration = c
+
+  @Provides
+  def provideServerConfiguration = c.getServerFactory
+
+  @Provides
+  def provideLoggingConfiguration = c.getLoggingFactory
+
+  @Provides
+  def provideMetricsConfiguration = c.getMetricsFactory
+
+  @Provides
+  def provideRuntimeConfiguration = {
+    val server = c.getServerFactory.asInstanceOf[AbstractServerFactory]
+//    server.
+   val rtc = new RuntimeConfiguration
+//    rtc.setHostname(e.getApplicationContext.getApplicationContext().getContextPath())
+    rtc
+  }
+
 
   @Provides
   def provideTemplateHCConfiguration = c.template1

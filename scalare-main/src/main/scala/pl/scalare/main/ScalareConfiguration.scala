@@ -7,6 +7,7 @@ import io.dropwizard.client.JerseyClientConfiguration
 import io.dropwizard.db.DataSourceFactory
 import org.hibernate.validator.constraints.NotEmpty
 import pl.scalare.main.configuration.{TemplateHCConfiguration, UrlConfiguration}
+import pl.scalare.rest.RuntimeConfiguration
 
 import scala.beans.BeanProperty
 
@@ -15,6 +16,10 @@ class ScalareConfiguration extends Configuration {
   @BeanProperty
   @NotEmpty
   var defaultName: String = "Stranger"
+
+//  @BeanProperty
+//  @NotEmpty
+//  var view = new RuntimeConfiguration()
 
   @BeanProperty
   //  @NotEmpty

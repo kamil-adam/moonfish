@@ -19,7 +19,7 @@ class H2Database extends DatabaseInfo {
 
   override def ds = JdbcConnectionPool.create(url, "username", "password");
 
-  override def url = "jdbc:h2:" + file
+  override def url = "jdbc:h2:./" + file
 
   override def file = "jdbc.h2"
 

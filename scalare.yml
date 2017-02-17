@@ -1,4 +1,7 @@
 defaultName: Stranger
+#view:
+#  hostname: "localhost"
+#  port: 8080
 template1:
   templateString: Hello, %s!
   template2String: Hello, %s!

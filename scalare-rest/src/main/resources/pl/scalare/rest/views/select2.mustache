@@ -1,19 +1,19 @@
 <h1>select</h1>
 
-{{sql}}
+{{key}}
 {{#table}}
 <table>
     <tr>
-{{#header}}
+        {{#header}}
             <th>{{.}}</th>
-{{/header}}
+        {{/header}}
     </tr>
-{{#body}}
+    {{#rows}}
         <tr>
-{{#.}}
+            {{#cells}}
                 <td>{{.}}</td>
-{{/.}}
+            {{/cells}}
         </tr>
-{{/body}}
+    {{/rows}}
 </table>
 {{/table}}
