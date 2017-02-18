@@ -6,7 +6,7 @@ class SQLiteDatabase extends DatabaseInfo {
 
   override def schema = ""
 
-  override def tables = Set("sqlite_temp_master")
+  override def keys = Set("sqlite_temp_master")
 
   override def mem = "jdbc:sqlite::memory:"
 

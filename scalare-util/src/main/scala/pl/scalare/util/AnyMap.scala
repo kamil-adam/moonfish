@@ -2,7 +2,7 @@ package pl.scalare.util
 
 import scala.collection.immutable.AbstractMap
 
-class AnyMap(val any : Any) extends AbstractMap[String, Any] {
+class AnyMap(val any: Any) extends AbstractMap[String, Any] {
   val clazz = any.getClass;
 
   override def +[B1 >: Any](kv: (String, B1)): Map[String, B1] = ???
@@ -24,11 +24,11 @@ class AnyMap(val any : Any) extends AbstractMap[String, Any] {
 
   private def opt(value: Any): Option[Any] = {
     value match {
-      case a : Array[_] => Option(a.map (v => opt(v).toList))
-      case a : String => Option(a)
-      case a : Number => Option(a)
-      case a : Boolean => Option(a)
-      case a : AnyRef => Option(new AnyMap(a))
+      case a: Array[_] => Option(a.map(v => opt(v).toList))
+      case a: String => Option(a)
+      case a: Number => Option(a)
+      case a: Boolean => Option(a)
+      case a: AnyRef => Option(new AnyMap(a))
     }
   }
 

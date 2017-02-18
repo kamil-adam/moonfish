@@ -65,7 +65,7 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
     e.register(new AuthValueFactoryProvider.Binder(classOf[User]));
 
     //
-    e.register(i.getInstance(classOf[ScalareResource]))
+    //e.register(i.getInstance(classOf[ScalareResource]))
     e.register(i.getInstance(classOf[DatabaseResource]))
     e.register(i.getInstance(classOf[EventResource]))
     e.register(i.getInstance(classOf[OmnibusResource]))

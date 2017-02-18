@@ -4,10 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper
 
 import scala.collection.immutable.AbstractMap
 
-class JacksonMap (val any : AnyRef) extends AbstractMap[String, Any] {
+class JacksonMap(val any: AnyRef) extends AbstractMap[String, Any] {
   val mapper = new ObjectMapper
   val string = mapper.writeValueAsString(any)
-
 
 
   override def +[B1 >: Any](kv: (String, B1)): Map[String, B1] = ???

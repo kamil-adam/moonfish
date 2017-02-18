@@ -14,11 +14,9 @@ class HsqlDatabase extends DatabaseInfo {
 
   override def schema = "INFORMATION_SCHEMA."
 
-  override def tables = Set("VIEWS")
+  override def keys = Set("VIEWS").map(k=> k.toLowerCase)
 
   override def url = "jdbc:hsqldb:file:" + file + ";ifexists=true"
-
-  override def file = "jdbc.hsqldb"
 
   override def ds = {
     val ds = new JDBCPool()
@@ -29,6 +27,8 @@ class HsqlDatabase extends DatabaseInfo {
   }
 
   def mem = "jdbc:hsqldb:mem:" + file
+
+  override def file = "jdbc.hsqldb"
 }
 
 object HsqlDatabase extends DatabaseApp {

@@ -12,7 +12,7 @@ trait DatabaseInfo {
 
   def schema: String
 
-  def tables: Set[String]
+  def keys: Set[String]
 
   def file: String
 
@@ -24,18 +24,18 @@ trait DatabaseInfo {
 
   def select(key: String) = {
     try {
-    val sql = selects.get(key).get
-    val dbi = new DBI(ds)
-    val h = dbi.open()
-    val list = h.select(sql)
-    h.close()
-    list.asScala.map(a => a.asScala.toMap).toIterable
+      val sql = selects.get(key).get
+      val dbi = new DBI(ds)
+      val h = dbi.open()
+      val list = h.select(sql)
+      h.close()
+      list.asScala.map(a => a.asScala.toMap).toIterable
     } catch {
       case NonFatal(e) => throw new IllegalArgumentException(key, e)
     }
   }
 
-  def selects: Map[String, String] = tables.map(t => (t, DatabaseInfo.prefix + schema + t)).toMap
+  def selects: Map[String, String] = keys.map(t => (t, DatabaseInfo.prefix + schema + t)).toMap
 
 }
 

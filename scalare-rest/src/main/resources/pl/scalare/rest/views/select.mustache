@@ -1,19 +1,21 @@
-<h1>select</h1>
+<h1>Select</h1>
+
+<li><a href="../../view">--</a></li>
 
 {{sql}}
 {{#table}}
-<table>
-    <tr>
-{{#header}}
-            <th>{{.}}</th>
-{{/header}}
-    </tr>
-{{#body}}
+    <table>
         <tr>
-{{#.}}
-                <td>{{.}}</td>
-{{/.}}
+            {{#header}}
+                <th>{{.}}</th>
+            {{/header}}
         </tr>
-{{/body}}
-</table>
+        {{#body}}
+            <tr>
+                {{#.}}
+                    <td>{{.}}</td>
+                {{/.}}
+            </tr>
+        {{/body}}
+    </table>
 {{/table}}

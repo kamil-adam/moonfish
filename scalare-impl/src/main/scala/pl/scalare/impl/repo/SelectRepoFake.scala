@@ -1,5 +1,6 @@
 package pl.scalare.impl.repo
 
+import pl.scalare.core.model.OptData
 import pl.scalare.core.repo.SelectRepo
 import pl.scalare.impl.repo.database._
 
@@ -19,12 +20,12 @@ class SelectRepoFake extends SelectRepo {
 
   override def keys(database: String) = selects(database).keys
 
-  private def selects(database: String) = get(database).selects
-
-  private def get(database: String) = databaseMap.get(database).get
-
   override def sql(database: String, key: String) = selects(database).get(key).get
 
-  override def select(database: String, key: String) = get(database).select(key)
+  private def selects(database: String) = get(database).selects
+
+  override def select(database: String, key: String, optData: OptData) = get(database).select(key)
+
+  private def get(database: String) = databaseMap.get(database).get
 
 }

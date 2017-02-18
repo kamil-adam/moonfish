@@ -1,16 +1,16 @@
 package pl.scalare.rest.asap
 
 import com.fasterxml.jackson.databind.ObjectMapper
-import com.google.gson.{Gson, JsonParser}
+import com.google.gson.JsonParser
 import org.fusesource.scalate.TemplateEngine
-import pl.scalare.core.model.{Body, Header, Select, Table}
+import pl.scalare.core.model.Select
 import pl.scalare.impl.repo.SelectRepoFake
 import pl.scalare.rest.resources.DatabaseResource
-import pl.scalare.util.{AnyMap, AppLogging}
+import pl.scalare.util.AppLogging
 
 object DatabaseAsap extends AppLogging {
 
-  val map = Map("table" -> Map("sql" -> "sql", ",header" -> List("h1", "h2"), "body" -> List(List("11", "12"),List("21", "22"))))
+  val map = Map("table" -> Map("sql" -> "sql", ",header" -> List("h1", "h2"), "body" -> List(List("11", "12"), List("21", "22"))))
 
   b(map)
 
@@ -26,7 +26,7 @@ object DatabaseAsap extends AppLogging {
   val map2 = Map("table" -> tableMap)
   b(map2)
 
-  def b(map : Map[String, AnyRef]): Unit = {
+  def b(map: Map[String, AnyRef]): Unit = {
     val engine = new TemplateEngine
     println("map " + map)
     println("map " + map)
@@ -38,7 +38,7 @@ object DatabaseAsap extends AppLogging {
   def a(): Unit = {
     val repo = new SelectRepoFake
     val resource = new DatabaseResource(repo, null)
-    val table = resource.select("hsql", "VIEWS")
+    val table = resource.select("hsql", "VIEWS", null, null)
     val mapper = new ObjectMapper
     val json = mapper.writeValueAsString(table)
     println(json)

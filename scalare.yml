@@ -1,10 +1,7 @@
-defaultName: Stranger
-#view:
-#  hostname: "localhost"
-#  port: 8080
-template1:
-  templateString: Hello, %s!
-  template2String: Hello, %s!
+view:
+  host: "localhost"
+  port: 8080
+  rootPath: /resources/
 sqlite:
   driverClass: "org.sqlite.JDBC"
   url: "jdbc:sqlite:jdbc.sqlite"
@@ -12,4 +9,5 @@ omnibusUrl:
  host: "localhost"
  port: 8082
 server:
+  type: simple
   rootPath: /resources/

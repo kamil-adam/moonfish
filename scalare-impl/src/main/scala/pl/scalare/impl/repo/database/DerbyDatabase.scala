@@ -5,7 +5,7 @@ import javax.sql.DataSource
 class DerbyDatabase extends DatabaseInfo {
   override def schema: String = ???
 
-  override def tables: Set[String] = ???
+  override def keys: Set[String] = ???
 
   override def file: String = ???
 

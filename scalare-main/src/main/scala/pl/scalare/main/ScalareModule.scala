@@ -13,8 +13,7 @@ import io.dropwizard.setup.Environment
 import pl.scalare.core.client.{OmnibusProxy, OmnibusProxyImpl}
 import pl.scalare.core.repo.{EventRepo, SelectRepo, SnapshotRepo}
 import pl.scalare.impl.repo.{EventRepoImpl, SelectRepoFake, SnapshotRepoImpl}
-import pl.scalare.rest.{RuntimeConfiguration, User}
-import pl.scalare.rest.resources.ScalareResource
+import pl.scalare.rest.User
 
 
 class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends AbstractModule {
@@ -35,23 +34,14 @@ class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends Abs
   def provideMetricsConfiguration = c.getMetricsFactory
 
   @Provides
-  def provideRuntimeConfiguration = {
+  def provideViewConfiguration = {
     val server = c.getServerFactory.asInstanceOf[AbstractServerFactory]
-//    server.
-   val rtc = new RuntimeConfiguration
-//    rtc.setHostname(e.getApplicationContext.getApplicationContext().getContextPath())
-    rtc
+    val view = c.getView
+    view
   }
-
-
-  @Provides
-  def provideTemplateHCConfiguration = c.template1
 
   @Provides
   def provideRepo = new DBIFactory()
-
-  @Provides
-  def provideScalareResource = new ScalareResource("", c.defaultName)
 
   @Provides
   def proviceOmnibusProxyImpl = {

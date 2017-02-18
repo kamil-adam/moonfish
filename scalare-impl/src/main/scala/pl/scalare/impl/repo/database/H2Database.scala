@@ -6,12 +6,12 @@ class H2Database extends DatabaseInfo {
 
   override def schema = "INFORMATION_SCHEMA."
 
-  override def tables = Set(
+  override def keys = Set(
     "CATALOGS",
     "COLLATIONS",
     "COLUMNS",
     "COLUMN_PRIVILEGES",
-    "CONSTANTS")
+    "CONSTANTS").map(k => k.toLowerCase)
 
   override def mem = "jdbc:h2:mem:" + file
 
@@ -19,11 +19,11 @@ class H2Database extends DatabaseInfo {
 
   override def ds = JdbcConnectionPool.create(url, "username", "password");
 
+  def cpds = JdbcConnectionPool.create(url, "username", "password");
+
   override def url = "jdbc:h2:./" + file
 
   override def file = "jdbc.h2"
-
-  def cpds = JdbcConnectionPool.create(url, "username", "password");
 
 }
 
