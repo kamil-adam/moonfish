@@ -42,7 +42,7 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
     run(i, e)
   }
 
-  def run(i: Injector, e: Environment) {
+  private def run(i: Injector, e: Environment) {
     //environment
     run(i, e.jersey())
     run(i, e.lifecycle())
@@ -57,7 +57,7 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
 
   }
 
-  def run(i: Injector, e: JerseyEnvironment): Unit = {
+  private def run(i: Injector, e: JerseyEnvironment): Unit = {
 
     e.register(i.getInstance(classOf[AuthDynamicFeature]))
     e.register(classOf[RolesAllowedDynamicFeature]);
@@ -73,19 +73,19 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
 
   }
 
-  def run(i: Injector, e: AdminEnvironment): Unit = {
+  private def run(i: Injector, e: AdminEnvironment): Unit = {
     e.addTask(i.getInstance(classOf[TruncateTask]))
   }
 
-  def run(i: Injector, e: LifecycleEnvironment): Unit = {
+  private def run(i: Injector, e: LifecycleEnvironment): Unit = {
 
   }
 
-  def run(i: Injector, e: ServletEnvironment): Unit = {
+  private def run(i: Injector, e: ServletEnvironment): Unit = {
 
   }
 
-  def run(i: Injector, e: MetricRegistry): Unit = {
+  private def run(i: Injector, e: MetricRegistry): Unit = {
   }
 
   def run(i: Injector, e: HealthCheckRegistry): Unit = {

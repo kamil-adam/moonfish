@@ -12,7 +12,7 @@ import io.dropwizard.server.AbstractServerFactory
 import io.dropwizard.setup.Environment
 import pl.scalare.core.client.{OmnibusProxy, OmnibusProxyImpl}
 import pl.scalare.core.repo.{EventRepo, SelectRepo, SnapshotRepo, TaskRepo}
-import pl.scalare.impl.repo.{EventRepoImpl, SelectRepoFake, SnapshotRepoImpl, TaskRepoFake}
+import pl.scalare.impl.repo._
 import pl.scalare.rest.User
 
 
@@ -54,6 +54,10 @@ class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends Abs
     val factory = new DBIFactory()
     val sqlite = factory.build(e, c.sqlite, "sqlite")
     sqlite.onDemand(classOf[EventRepoImpl]);
+  }
+
+  def proviceHCRepoImpl = {
+    new HCRepoImpl(e.healthChecks)
   }
 
   @Provides
