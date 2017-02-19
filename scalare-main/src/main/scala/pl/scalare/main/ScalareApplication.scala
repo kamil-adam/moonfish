@@ -17,7 +17,7 @@ import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature
 import pl.scalare.main.healthchecks.{EventHealthCkeck, TemplateHealthCheck}
 import pl.scalare.rest.User
 import pl.scalare.rest.resources._
-import pl.scalare.rest.tasks.SnapshotTask
+import pl.scalare.rest.tasks.TruncateTask
 
 class ScalareApplication extends Application[ScalareConfiguration] with LazyLogging {
 
@@ -74,7 +74,7 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
   }
 
   def run(i: Injector, e: AdminEnvironment): Unit = {
-    e.addTask(i.getInstance(classOf[SnapshotTask]))
+    e.addTask(i.getInstance(classOf[TruncateTask]))
   }
 
   def run(i: Injector, e: LifecycleEnvironment): Unit = {

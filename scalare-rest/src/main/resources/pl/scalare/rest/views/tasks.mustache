@@ -1,30 +1,29 @@
 <html>
-<head>
+  <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
-</head>
-<body>
-<h1>Tasks</h1>
-<ul>
+  </head>
+  <body>
+    <h1>Tasks</h1>
+    <ul>
     {{#tasks}}
         <li>
             <button class="task" type="button" value="{{.}}">{{.}}</button>
-        </li>
-        <li>
-            <input type="button" value="{{.}}"/>
+            <input class="task" type="button" value="{{.}}"/>
         </li>
     {{/tasks}}
-</ul>
-<script>
-$( ".task" ).click(function() {
-  alert( "Handler for .click() called." );
-   alert($(this).val());
-    alert($(this).attr("value"));
+    </ul>
+    <script>
+$(".task").click(function() {
+  var path = "{{view.adminContextPath}}/tasks/"
+  var val = $(this).val();
+  jQuery.post( path + val, function(data, textStatus, jqXHR ) {
+    console.log(data)
+    console.log(textStatus)
+    console.log(jqXHR)
+  })
 });
-
-
-
-</script>
-</body>
+    </script>
+  </body>
 </html>
 
 

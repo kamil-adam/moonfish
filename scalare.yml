@@ -1,7 +1,9 @@
 view:
   host: "localhost"
   port: 8080
-  rootPath: /resources/
+  rootPath: "/resources/"
+  applicationContextPath: /application
+  adminContextPath: /admin
 sqlite:
   driverClass: "org.sqlite.JDBC"
   url: "jdbc:sqlite:jdbc.sqlite"
