@@ -10,7 +10,7 @@ import pl.scalare.rest.ViewConfiguration
 import pl.scalare.rest.views.{HCView}
 import org.javatuples.Pair
 
-@Path("/hc")
+@Path("/hcs")
 @Produces(Array(MediaType.APPLICATION_JSON, MediaType.TEXT_HTML))
 class HCResource @Inject()(@Inject val repo: HCRepo, @Inject val view: ViewConfiguration) {
   @GET
