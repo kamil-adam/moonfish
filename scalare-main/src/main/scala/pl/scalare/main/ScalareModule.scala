@@ -11,8 +11,8 @@ import io.dropwizard.jdbi.DBIFactory
 import io.dropwizard.server.AbstractServerFactory
 import io.dropwizard.setup.Environment
 import pl.scalare.core.client.{OmnibusProxy, OmnibusProxyImpl}
-import pl.scalare.core.repo.{EventRepo, SelectRepo, SnapshotRepo}
-import pl.scalare.impl.repo.{EventRepoImpl, SelectRepoFake, SnapshotRepoImpl}
+import pl.scalare.core.repo.{EventRepo, SelectRepo, SnapshotRepo, TaskRepo}
+import pl.scalare.impl.repo.{EventRepoImpl, SelectRepoFake, SnapshotRepoImpl, TaskRepoFake}
 import pl.scalare.rest.User
 
 
@@ -86,6 +86,7 @@ class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends Abs
 
   override def configure(): Unit = {
     bind(classOf[SelectRepo]).to(classOf[SelectRepoFake]).asEagerSingleton()
+    bind(classOf[TaskRepo]).to(classOf[TaskRepoFake]).asEagerSingleton()
     bind(classOf[EventRepo]).to(classOf[EventRepoImpl]).asEagerSingleton()
     bind(classOf[SnapshotRepo]).to(classOf[SnapshotRepoImpl]).asEagerSingleton()
     bind(classOf[OmnibusProxy]).to(classOf[OmnibusProxyImpl]).asEagerSingleton()

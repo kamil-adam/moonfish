@@ -1,12 +1,12 @@
-package pl.scalare.impl.repo.database
+package pl.scalare.impl.repo.database.conf
 
 import org.sqlite.SQLiteDataSource
 
-class SQLiteDatabase extends DatabaseInfo {
+class SQLiteDatabaseConf extends DatabaseConf {
 
   override def schema = ""
 
-  override def keys = Set("sqlite_temp_master")
+  override def keySet = Set("sqlite_master", "sqlite_temp_master")
 
   override def mem = "jdbc:sqlite::memory:"
 
@@ -22,6 +22,6 @@ class SQLiteDatabase extends DatabaseInfo {
 
 }
 
-object SQLiteDatabase extends DatabaseApp {
-  run(new SQLiteDatabase)
+object SQLiteDatabaseConf extends DatabaseApp {
+  run(new SQLiteDatabaseConf)
 }

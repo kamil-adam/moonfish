@@ -16,7 +16,7 @@ import io.dropwizard.views.ViewBundle
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature
 import pl.scalare.main.healthchecks.{EventHealthCkeck, TemplateHealthCheck}
 import pl.scalare.rest.User
-import pl.scalare.rest.resources.{DatabaseResource, EventResource, OmnibusResource, ScalareResource}
+import pl.scalare.rest.resources._
 import pl.scalare.rest.tasks.SnapshotTask
 
 class ScalareApplication extends Application[ScalareConfiguration] with LazyLogging {
@@ -67,6 +67,7 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
     //
     //e.register(i.getInstance(classOf[ScalareResource]))
     e.register(i.getInstance(classOf[DatabaseResource]))
+    e.register(i.getInstance(classOf[TaskResource]))
     e.register(i.getInstance(classOf[EventResource]))
     e.register(i.getInstance(classOf[OmnibusResource]))
 

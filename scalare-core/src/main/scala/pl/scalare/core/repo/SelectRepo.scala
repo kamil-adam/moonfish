@@ -10,5 +10,5 @@ trait SelectRepo {
 
   def sql(database: String, key: String): String
 
-  def select(database: String, key: String, optData : OptData): Iterable[Map[String, AnyRef]]
+  def select(database: String, key: String, optData: OptData): Iterable[Map[String, AnyRef]]
 }

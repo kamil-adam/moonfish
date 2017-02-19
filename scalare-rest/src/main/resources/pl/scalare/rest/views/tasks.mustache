@@ -1,8 +1,30 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+</head>
+<body>
 <h1>Tasks</h1>
-    <ul>
-        {{#tasks}}
-            <button type="button">{{.}}</button>
-        {{/tasks}}
-    </ul>
+<ul>
+    {{#tasks}}
+        <li>
+            <button class="task" type="button" value="{{.}}">{{.}}</button>
+        </li>
+        <li>
+            <input type="button" value="{{.}}"/>
+        </li>
+    {{/tasks}}
+</ul>
+<script>
+$( ".task" ).click(function() {
+  alert( "Handler for .click() called." );
+   alert($(this).val());
+    alert($(this).attr("value"));
+});
 
-<li><a href="../../view">--</a></li>
+
+
+</script>
+</body>
+</html>
+
+

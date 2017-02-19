@@ -6,13 +6,11 @@ import javax.ws.rs.core.MediaType
 import javax.ws.rs.{QueryParam, _}
 
 import com.codahale.metrics.annotation.Timed
+import pl.scalare.core.model.OptDatas.optInt
 import pl.scalare.core.model._
 import pl.scalare.core.repo.SelectRepo
 import pl.scalare.rest.ViewConfiguration
 import pl.scalare.rest.views.{DatabasesView, KeysView, SelectView}
-
-import pl.scalare.core.model.OptDatas.optInt
-import pl.scalare.core.model.OptDatas.optString
 
 
 @Path("/databases")
@@ -20,27 +18,24 @@ import pl.scalare.core.model.OptDatas.optString
 class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: ViewConfiguration) {
 
   @GET
+  @Path("/view")
+  @Timed
+  def databasesView = new DatabasesView(rtc, databases)
+
+  @GET
   @Path("/")
   @Timed
   def databases = repo.databases.toArray
 
   @GET
-  @Path("/view")
+  @Path("/{db}/keys/view")
   @Timed
-  def databasesView = new DatabasesView(rtc, databases)
-
-
+  def keysView(@PathParam("db") db: String) = new KeysView(rtc, keys(db))
 
   @GET
   @Path("/{db}/keys")
   @Timed
-  def keys(@PathParam("db") db: String) =  repo.keys(db).toArray
-
-  @GET
-  @Path("/{db}/keys/view")
-  @Timed
-  def keysView(@PathParam("db") db: String) = new KeysView(rtc,keys(db))
-
+  def keys(@PathParam("db") db: String) = repo.keys(db).toArray
 
   @GET
   @Path("/{db}/keys/{key}/header/")
@@ -49,6 +44,14 @@ class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: 
     val select = repo.select(db, key, null)
     select.iterator.next().map(m => new Cell(m._1)).toArray
   }
+
+  @GET
+  @Path("/{db}/keys/{key}/view/")
+  @Timed
+  def selectView(@PathParam("db") db: String,
+                 @PathParam("key") key: String,
+                 @QueryParam("limit") limit: Optional[Integer],
+                 @QueryParam("offset") offset: Optional[Integer]) = new SelectView(rtc, select(db, key, limit, offset))
 
   @GET
   @Path("/{db}/keys/{key}/")
@@ -73,15 +76,6 @@ class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: 
     } else
       new Select(db, key)
   }
-
-  @GET
-  @Path("/{db}/keys/{key}/view/")
-  @Timed
-  def selectView(@PathParam("db") db: String,
-                 @PathParam("key") key: String,
-                 @QueryParam("limit") limit: Optional[Integer],
-                 @QueryParam("offset") offset: Optional[Integer]) = new SelectView(rtc, select(db, key, limit, offset))
-
 
 
 }

@@ -10,5 +10,5 @@ class SelectRepoImpl extends SelectRepo {
 
   override def sql(database: String, key: String): String = ???
 
-  override def select(database: String, key: String, optData : OptData): Iterable[Map[String, AnyRef]] = ???
+  override def select(database: String, key: String, optData: OptData): Iterable[Map[String, AnyRef]] = ???
 }
