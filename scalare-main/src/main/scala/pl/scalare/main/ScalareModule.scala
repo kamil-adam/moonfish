@@ -56,7 +56,7 @@ class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends Abs
     sqlite.onDemand(classOf[EventRepoImpl]);
   }
 
-  def proviceHCRepoImpl  = new HCRepoImpl(e.healthChecks)
+  def proviceHCRepoImpl  = new HealthCheckRepoImpl(e.healthChecks)
 
   @Provides
   def proviceAuthDynamicFeature = {
@@ -89,7 +89,7 @@ class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends Abs
   override def configure(): Unit = {
     bind(classOf[SelectRepo]).to(classOf[SelectRepoFake]).asEagerSingleton()
     bind(classOf[TaskRepo]).to(classOf[TaskRepoFake]).asEagerSingleton()
-    bind(classOf[HCRepo]).to(classOf[HCRepoImpl]).asEagerSingleton()
+    bind(classOf[HealthCheckRepo]).to(classOf[HealthCheckRepoImpl]).asEagerSingleton()
     bind(classOf[EventRepo]).to(classOf[EventRepoImpl]).asEagerSingleton()
     bind(classOf[SnapshotRepo]).to(classOf[SnapshotRepoImpl]).asEagerSingleton()
     bind(classOf[OmnibusProxy]).to(classOf[OmnibusProxyImpl]).asEagerSingleton()

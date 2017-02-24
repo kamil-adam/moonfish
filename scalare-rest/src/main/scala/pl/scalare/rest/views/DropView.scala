@@ -1,8 +1,8 @@
 package pl.scalare.rest.views
 
+import com.codahale.metrics.health.HealthCheck
 import io.dropwizard.views.View
 import pl.scalare.rest.ViewConfiguration
-
 import org.javatuples.Pair
 
 
@@ -10,6 +10,6 @@ class TasksView(val view: ViewConfiguration, val tasks: Array[String])
   extends View("tasks.mustache") {
 }
 
-class HCView(val view: ViewConfiguration, val hcs: Array[Pair[String,AnyRef]])
-  extends View("hcs.mustache") {
+class HealthCheckView(val view: ViewConfiguration, val checks: Array[Pair[String,HealthCheck.Result]])
+  extends View("healthchecks.mustache") {
 }

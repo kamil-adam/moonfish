@@ -14,7 +14,8 @@ import io.dropwizard.lifecycle.setup.LifecycleEnvironment
 import io.dropwizard.setup.{AdminEnvironment, Bootstrap, Environment}
 import io.dropwizard.views.ViewBundle
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature
-import pl.scalare.main.healthchecks.{EventHealthCkeck, TemplateHealthCheck}
+import pl.scalare.core.repo.HealthCheckRepo
+import pl.scalare.main.healthchecks.{EventHealthCheck, SQLiteHealthCheck, TemplateHealthCheck}
 import pl.scalare.rest.User
 import pl.scalare.rest.resources._
 import pl.scalare.rest.tasks.TruncateTask
@@ -68,7 +69,7 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
     //e.register(i.getInstance(classOf[ScalareResource]))
     e.register(i.getInstance(classOf[DatabaseResource]))
     e.register(i.getInstance(classOf[TaskResource]))
-    e.register(i.getInstance(classOf[HCResource]))
+    e.register(i.getInstance(classOf[HealthCheckResource]))
     e.register(i.getInstance(classOf[EventResource]))
     e.register(i.getInstance(classOf[OmnibusResource]))
 
@@ -90,8 +91,11 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
   }
 
   def run(i: Injector, e: HealthCheckRegistry): Unit = {
-    e.register("event", i.getInstance(classOf[EventHealthCkeck]))
+    e.register("event", i.getInstance(classOf[EventHealthCheck]))
     e.register("template", i.getInstance(classOf[TemplateHealthCheck]))
+    e.register("sqlite", i.getInstance(classOf[SQLiteHealthCheck]))
+    val repo = i.getInstance(classOf[HealthCheckRepo])
+    logger.info("runHealthChecks" + repo.runHealthChecks)
 
   }
 
