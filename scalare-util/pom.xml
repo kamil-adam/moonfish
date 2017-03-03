@@ -15,8 +15,10 @@
         <encoding>UTF-8</encoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <scala.version>2.11.8</scala.version>
         <scala-logging.version>3.5.0</scala-logging.version>
         <scalatest.version>3.0.1</scalatest.version>
+        <jackson.version>2.8.3</jackson.version>
     </properties>
 
     <dependencies>
@@ -32,6 +34,25 @@
             <artifactId>scalatest_2.11</artifactId>
             <version>${scalatest.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-yaml</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
