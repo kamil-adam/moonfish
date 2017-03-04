@@ -50,6 +50,17 @@ class Json2YamlSpec extends FunSpec with GivenWhenThen {
         val yaml = onml.applyTry("{\"a\":[]}")
         assert("---\na: []\n" == yaml)
       }
+      it("should produce a when consume a") {
+        val yaml = onml.applyTry("a")
+        assert("#a" == yaml)
+      }
+
+      it("should produce a when consume 'a'") {
+        val yaml = onml.applyTry("\"a\"")
+        assert("--- \"a\"\n" == yaml)
+      }
+
+
     }
   }
 
