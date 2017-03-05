@@ -2,22 +2,28 @@ package pl.scalare.util.asap
 
 import org.scalatest.{FunSpec, GivenWhenThen}
 
-class Json2YamlSpec extends FunSpec with GivenWhenThen {
+class Json2YamlJacksonSpec extends FunSpec with GivenWhenThen {
 
   describe("A Json2Yaml") {
-    describe("when apply one-line-string") {
+    val onml : Json2Yaml = new Json2YamlJackson()
 
-      val onml = new Json2Yaml()
-
+    describe("when left") {
       it("should produce null when consume null") {
         val yaml = onml.applyTry(null)
         assert(null == yaml)
       }
-
       it("should produce empty comment when consume empty string") {
         val yaml = onml.applyTry("")
         assert("#" == yaml)
       }
+      it("should produce a when consume a") {
+        val yaml = onml.applyTry("a")
+        assert("#a" == yaml)
+      }
+
+    }
+
+    describe("when right") {
       it("should produce empty when consume empty array") {
         val yaml = onml.applyTry("[]")
         assert("--- []\n" == yaml)
@@ -49,10 +55,6 @@ class Json2YamlSpec extends FunSpec with GivenWhenThen {
       it("should produce array object when consume array object") {
         val yaml = onml.applyTry("{\"a\":[]}")
         assert("---\na: []\n" == yaml)
-      }
-      it("should produce a when consume a") {
-        val yaml = onml.applyTry("a")
-        assert("#a" == yaml)
       }
 
       it("should produce a when consume 'a'") {
