@@ -29,7 +29,7 @@ trait Json2Yaml extends AppLogging {
   }
 
   def applyTry(jsonString: String): String = map(jsonString) { s =>
-      Try(apply(jsonString)) match {
+    Try(apply(jsonString)) match {
       case Success(yaml) => yaml
       case Failure(exception) => {
         logger.error(jsonString, exception)
@@ -44,6 +44,6 @@ trait Json2Yaml extends AppLogging {
       .getOrElse(null)
   }
 
-  protected def apply (jsonString :String) : String
+  protected def apply(jsonString: String): String
 
 }

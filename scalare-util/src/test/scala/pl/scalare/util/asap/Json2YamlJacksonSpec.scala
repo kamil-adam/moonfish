@@ -5,7 +5,7 @@ import org.scalatest.{FunSpec, GivenWhenThen}
 class Json2YamlJacksonSpec extends FunSpec with GivenWhenThen {
 
   describe("A Json2Yaml") {
-    val onml : Json2Yaml = new Json2YamlJackson()
+    val onml: Json2Yaml = new Json2YamlJackson()
 
     describe("when left") {
       it("should produce null when consume null") {

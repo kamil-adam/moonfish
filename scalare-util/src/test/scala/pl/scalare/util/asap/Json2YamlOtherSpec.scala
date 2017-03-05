@@ -6,7 +6,7 @@ import org.scalatest.{FunSpec, GivenWhenThen, Ignore}
 class Json2YamlOtherSpec extends FunSpec with GivenWhenThen {
 
   describe("A Json2Yaml") {
-    val onml : Json2Yaml = new Json2YamlOther()
+    val onml: Json2Yaml = new Json2YamlOther()
 
     describe("when left") {
       it("should produce null when consume null") {
