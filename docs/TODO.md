@@ -9,6 +9,7 @@
 
 ## Query
 * add SCIM https://github.com/pingidentity/scim
+* add SCIM2 https://github.com/pingidentity/scim2
 * add graphql 
- * https://github.com/graphql-java/graphql-java
- * https://github.com/sangria-graphql/sangria
+  * https://github.com/graphql-java/graphql-java
+  * https://github.com/sangria-graphql/sangria
