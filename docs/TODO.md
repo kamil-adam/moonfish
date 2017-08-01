@@ -6,6 +6,7 @@
 ## REST Java API Libraries
 * Add REST Assured http://rest-assured.io/
 * Add unirest http://unirest.io/java.html
+* Add Postman
 
 ## Query
 * add SCIM https://github.com/pingidentity/scim
