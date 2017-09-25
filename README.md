@@ -1,3 +1,6 @@
+* https://codecov.io/gh/writeonly/scalare
+* https://circleci.com/gh/writeonly/scalare
+
 # ScalaRE
 
 FOR people
