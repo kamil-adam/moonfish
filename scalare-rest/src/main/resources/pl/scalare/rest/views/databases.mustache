@@ -1,6 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"/>
+    <script type="text/coffeescript" >
+
+    </script>
+    <script type="text/javascript"
+            src="http://coffeescript.org/v1/browser-compiler/coffee-script.js" />
+    <!--<script type="text/javascript" -->
+            <!--src="http://cdnjs.cloudflare.com/ajax/libs/coffee-script/1.1.2/coffee-script.min.js"></script>-->
+
+</head>
+<body>
+
 <h1>Databases</h1>
+
+<h2>SQL</h2>
+<h3>Embedded</h3>
 <ul>
     {{#databases}}
         <li><a href="{{.}}/keys/view">{{.}}</a></li>
     {{/databases}}
+
 </ul>
+<h3>Server</h3>
+<ul>
+    {{#server}}
+        <li><a href="{{.}}/keys/view">{{.}}</a></li>
+    {{/server}}
+</ul>
+<form action="/datasource" method="post">
+    <label for="driverClass">driverClass:</label>
+    <input type="text" name="driverClass" />
+    <label for="url">url:</label>
+    <input type="text" name="url" />
+    <label for="user">user:</label>
+    <input type="text" name="user" />
+    <label for="password">Password:</label>
+    <input type="password" name="password" />
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<h2>NoSQL</h2>
+<h3>Like-SQL</h3>
+<h2>Other</h2>
+</body>
+<script>
+$(".task").click(function() {
+  var path = "{{view.adminContextPath}}/tasks/"
+  var val = $(this).val();
+  jQuery.post( path + val, function(data, textStatus, jqXHR ) {
+    console.log(data)
+    console.log(textStatus)
+    console.log(jqXHR)
+  })
+});
+</script>
+</html>

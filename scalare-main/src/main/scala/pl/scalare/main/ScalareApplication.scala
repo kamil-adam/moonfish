@@ -22,7 +22,7 @@ import pl.scalare.rest.tasks.TruncateTask
 
 class ScalareApplication extends Application[ScalareConfiguration] with LazyLogging {
 
-  //  override def getName: String = "getClass"
+  override def getName: String = "ScalaRE"
 
   override def initialize(bootstrap: Bootstrap[ScalareConfiguration]) {
     logger info "initialize"

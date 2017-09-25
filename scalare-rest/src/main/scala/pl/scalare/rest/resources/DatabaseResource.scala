@@ -77,5 +77,16 @@ class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: 
       new Select(db, key)
   }
 
+  @POST
+  @Path("/{db}/keys/{key}/")
+  @Timed
+  def post(
+            @QueryParam("driverClass") driverClass: String,
+            @QueryParam("url") url: String,
+            @QueryParam("user") user: String,
+            @QueryParam("password") password: String): Unit = {
+
+  }
+
 
 }
