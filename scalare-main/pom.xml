@@ -23,6 +23,10 @@
 
         <dependency>
             <groupId>pl.writeonly</groupId>
+            <artifactId>scalare-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>pl.writeonly</groupId>
             <artifactId>scalare-impl</artifactId>
         </dependency>
         <dependency>
