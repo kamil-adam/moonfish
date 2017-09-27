@@ -4,13 +4,14 @@ import org.scalatest.FunSpec
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
 import org.sqlite.{SQLiteDataSource, SQLiteJDBCLoader}
+import pl.scalare.impl.repo.database.conf.{HsqlDatabaseConf, SQLiteDatabaseConf}
 
 class SQLiteSpec extends FunSpec {
-  val url = "jdbc:sqlite:jdbc.sqlite"
-  describe(url) {
+  val conf = new SQLiteDatabaseConf
+  val url = conf.mem
+  ignore(url) {
     val initialize = SQLiteJDBCLoader.initialize();
-    val ds = new SQLiteDataSource();
-    ds.setUrl(url);
+    val ds = conf.ds
 
     describe("when empty") {
       ignore("SCHEMATA") {
