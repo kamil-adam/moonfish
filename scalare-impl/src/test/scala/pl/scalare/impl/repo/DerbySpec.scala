@@ -4,10 +4,11 @@ import org.apache.derby.jdbc.EmbeddedDataSource
 import org.scalatest.FunSpec
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
+import pl.scalare.impl.repo.database.conf.DerbyDatabaseConf
 
 class DerbySpec extends FunSpec {
-  val url = "jdbc:h2:mem:test"
-  describe(url) {
+  val url = new DerbyDatabaseConf().mem
+  ignore(url) {
     //    val ds = new EmbeddedConnectionPoolDataSource()
     val ds = new EmbeddedDataSource();
     ds.setDatabaseName(url);

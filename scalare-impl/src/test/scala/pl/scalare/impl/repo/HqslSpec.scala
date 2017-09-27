@@ -26,7 +26,7 @@ class HqslSpec extends FunSpec {
       }
     }
     describe("createQuery") {
-      it("CATALOGS") {
+      ignore("CATALOGS") {
         val dbi = new DBI(ds);
         val h = dbi.open();
 
@@ -38,7 +38,7 @@ class HqslSpec extends FunSpec {
         h.close();
       }
 
-      it("TABLE_TYPES") {
+      ignore("TABLE_TYPES") {
         val dbi = new DBI(ds);
         val h = dbi.open();
 

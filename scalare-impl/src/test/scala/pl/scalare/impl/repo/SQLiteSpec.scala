@@ -13,7 +13,7 @@ class SQLiteSpec extends FunSpec {
     ds.setUrl(url);
 
     describe("when empty") {
-      it("SCHEMATA") {
+      ignore("SCHEMATA") {
         val dbi = new DBI(ds);
         val h = dbi.open();
 
@@ -25,7 +25,7 @@ class SQLiteSpec extends FunSpec {
       }
     }
     describe("when empty") {
-      it("CATALOGS") {
+      ignore("CATALOGS") {
         val dbi = new DBI(ds);
         val h = dbi.open();
 
@@ -36,7 +36,7 @@ class SQLiteSpec extends FunSpec {
 
         h.close();
       }
-      it("TABLE_TYPES") {
+      ignore("TABLE_TYPES") {
         val dbi = new DBI(ds);
         val h = dbi.open();
 

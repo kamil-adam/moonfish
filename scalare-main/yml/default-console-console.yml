@@ -36,3 +36,9 @@ metrics:
     - type: console
       timeZone: UTC
       output: stdout
+sqlite:
+  driverClass: "org.sqlite.JDBC"
+  url: "jdbc:sqlite:jdbc.sqlite"
+omnibusUrl:
+ host: "localhost"
+ port: 8082
