@@ -3,8 +3,8 @@ package pl.scalare.impl.repo
 import org.scalatest.FunSpec
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
-import org.sqlite.{SQLiteDataSource, SQLiteJDBCLoader}
-import pl.scalare.impl.repo.database.conf.{HsqlDatabaseConf, SQLiteDatabaseConf}
+import org.sqlite.SQLiteJDBCLoader
+import pl.scalare.impl.repo.database.conf.SQLiteDatabaseConf
 
 class SQLiteSpec extends FunSpec {
   val conf = new SQLiteDatabaseConf

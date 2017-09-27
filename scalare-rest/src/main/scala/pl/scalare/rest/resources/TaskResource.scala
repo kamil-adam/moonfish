@@ -14,12 +14,12 @@ import pl.scalare.rest.views.TasksView
 class TaskResource @Inject()(@Inject val repo: TaskRepo, @Inject val view: ViewConfiguration) {
 
   @GET
-  @Path("/")
-  @Timed
-  def tasks = repo.tasks.toArray
-
-  @GET
   @Path("/view")
   @Timed
   def tasksView = new TasksView(view, tasks)
+
+  @GET
+  @Path("/")
+  @Timed
+  def tasks = repo.tasks.toArray
 }

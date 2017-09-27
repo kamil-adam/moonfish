@@ -56,7 +56,7 @@ class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends Abs
     sqlite.onDemand(classOf[EventRepoImpl]);
   }
 
-  def proviceHCRepoImpl  = new HealthCheckRepoImpl(e.healthChecks)
+  def proviceHCRepoImpl = new HealthCheckRepoImpl(e.healthChecks)
 
   @Provides
   def proviceAuthDynamicFeature = {

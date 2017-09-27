@@ -1,12 +1,10 @@
 package pl.scalare.impl.repo
 
 import com.typesafe.scalalogging.LazyLogging
-import org.hsqldb.jdbc.JDBCPool
 import org.scalatest.FunSpec
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
-import pl.scalare.impl.repo.database.conf.{H2DatabaseConf, HsqlDatabaseConf}
-import pl.scalare.util.AppLogging
+import pl.scalare.impl.repo.database.conf.HsqlDatabaseConf
 
 class HqslSpec extends FunSpec with LazyLogging {
   val conf = new HsqlDatabaseConf

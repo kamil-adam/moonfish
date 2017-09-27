@@ -6,7 +6,7 @@ import org.skife.jdbi.v2.util.StringMapper
 import pl.scalare.impl.repo.database.conf.H2DatabaseConf
 
 class H2Spec extends FunSpec {
-  val conf  = new H2DatabaseConf
+  val conf = new H2DatabaseConf
   val url = conf.mem
   describe(url) {
     val ds = conf.ds

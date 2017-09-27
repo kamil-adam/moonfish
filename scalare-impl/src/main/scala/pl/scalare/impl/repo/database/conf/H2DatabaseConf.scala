@@ -44,11 +44,11 @@ class H2DatabaseConf extends DatabaseConf {
 
   override def ds = JdbcConnectionPool.create(url, "username", "password");
 
-  def cpds = JdbcConnectionPool.create(url, "username", "password");
-
   override def url = "jdbc:h2:./" + file
 
   override def file = "jdbc.h2"
+
+  def cpds = JdbcConnectionPool.create(url, "username", "password");
 
 }
 

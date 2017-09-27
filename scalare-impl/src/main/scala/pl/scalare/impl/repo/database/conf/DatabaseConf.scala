@@ -4,9 +4,8 @@ import javax.sql.DataSource
 
 import org.skife.jdbi.v2.DBI
 
-import scala.util.control.NonFatal
-
 import scala.collection.JavaConverters._
+import scala.util.control.NonFatal
 
 trait DatabaseConf {
 

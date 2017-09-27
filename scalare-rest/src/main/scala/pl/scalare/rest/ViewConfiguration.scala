@@ -14,10 +14,10 @@ class ViewConfiguration {
   var rootPath: String = _
 
   @BeanProperty
-  var adminContextPath :String = _
+  var adminContextPath: String = _
 
   @BeanProperty
-  var applicationContextPath :String = _
+  var applicationContextPath: String = _
 
   override def toString = host + ":" + port + rootPath
 }
