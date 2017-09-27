@@ -1,0 +1,16 @@
+logging:
+  level: INFO
+  appenders:
+    - type: file
+      currentLogFilename: son2.log
+      threshold: ALL
+      queueSize: 512
+      discardingThreshold: 0
+      archive: true
+      archivedLogFilenamePattern: son2-%d.log
+      archivedFileCount: 5
+      timeZone: UTC
+      logFormat: # TODO
+      bufferSize: 8KB
+      filterFactories:
+        - type: URI

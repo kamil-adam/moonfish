@@ -1,0 +1,4 @@
+metrics:
+  reporters:
+    - type: csv
+      file: metrics.csv

@@ -1,0 +1,12 @@
+logging:
+  level: INFO
+  appenders:
+    - type: syslog
+      host: localhost
+      port: 514
+      facility: local0
+      threshold: ALL
+      stackTracePrefix: \t
+      logFormat: # TODO
+      filterFactories:
+        - type: URI

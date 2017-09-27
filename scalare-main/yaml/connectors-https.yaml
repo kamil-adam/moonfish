@@ -1,0 +1,32 @@
+# Extending from the default server configuration
+server:
+  applicationConnectors:
+    - type: https
+      port: 8443
+      #....
+      keyStorePath: /path/to/file
+      keyStorePassword: changeit
+      keyStoreType: JKS
+      keyStoreProvider:
+      trustStorePath: /path/to/file
+      trustStorePassword: changeit
+      trustStoreType: JKS
+      trustStoreProvider:
+      keyManagerPassword: changeit
+      needClientAuth: false
+      wantClientAuth:
+      certAlias: <alias>
+      crlPath: /path/to/file
+      enableCRLDP: false
+      enableOCSP: false
+      maxCertPathLength: (unlimited)
+      ocspResponderUrl: (none)
+      jceProvider: (none)
+      validateCerts: false
+      validatePeers: false
+      supportedProtocols: (JVM default)
+      excludedProtocols: [SSL, SSLv2, SSLv2Hello, SSLv3] # (Jetty's default)
+      supportedCipherSuites: (JVM default)
+      excludedCipherSuites: [.*_(MD5|SHA|SHA1)$] # (Jetty's default)
+      allowRenegotiation: true
+      endpointIdentificationAlgorithm: (none)

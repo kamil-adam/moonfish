@@ -1,0 +1,28 @@
+server:
+  type: simple
+  applicationContextPath: /application
+  adminContextPath: /admin
+  connector:
+    type: http
+    port: 8080
+logging:
+  level: INFO
+  appenders:
+    - type: file
+      currentLogFilename: son2.log
+      threshold: ALL
+      queueSize: 512
+      discardingThreshold: 0
+      archive: true
+      archivedLogFilenamePattern: son2-%d.log
+      archivedFileCount: 5
+      timeZone: UTC
+      logFormat: # TODO
+      bufferSize: 8KB
+#      filterFactories:
+#        - type: URI
+metrics:
+  reporters:
+    - type: log
+      logger: metrics
+      markerName: marker-name

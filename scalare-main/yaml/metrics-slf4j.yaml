@@ -1,0 +1,5 @@
+metrics:
+  reporters:
+    - type: log
+      logger: metrics
+      markerName: marker-name

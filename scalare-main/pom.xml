@@ -16,6 +16,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <guice.version>4.1.0</guice.version>
+        <exec-maven-plugin.version>1.5.0</exec-maven-plugin.version>
     </properties>
 
 
@@ -72,6 +73,27 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <mainClass>pl.scalare.main.ScalareApp</mainClass>
+                    <arguments>
+                        <argument>server</argument>
+                        <argument>yml/default-console-console.yml</argument>
+                        <!--<argument>yml/simple-file-slf4j.yml</argument>-->
+                        <!--<argument>yml/simple-syslog-csv.yml</argument>-->
+                    </arguments>
+                </configuration>
             </plugin>
 
             <!--<plugin>-->
