@@ -34,6 +34,8 @@ class DerbyDatabaseConf extends DatabaseConf {
 
   override def url: String = "jdbc:derby:" + file + ";create=true"
 
+  override def file: String = "jdbc.derby"
+
   override def ds: DataSource = {
     val ds = new EmbeddedDataSource();
     ds.setDatabaseName(mem);
@@ -42,6 +44,4 @@ class DerbyDatabaseConf extends DatabaseConf {
   }
 
   override def mem: String = "jdbc:derby:memory:" + file + ";create=true"
-
-  override def file: String = "jdbc.derby"
 }

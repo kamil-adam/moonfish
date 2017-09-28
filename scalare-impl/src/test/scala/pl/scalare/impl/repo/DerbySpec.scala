@@ -1,7 +1,6 @@
 package pl.scalare.impl.repo
 
 import org.apache.derby.jdbc.EmbeddedDataSource
-import org.scalatest.FunSpec
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
 import pl.scalare.impl.repo.database.conf.DerbyDatabaseConf
