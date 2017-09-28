@@ -1,5 +1,26 @@
 *.class
 *.log
+*jar
+*iml
+**iml
+*class
+**class
+*timestamp
+**timestamp
+*log
+/lib/
+/classes/
+/target/
+/checkouts/
+/bin/
+.lein-plugins/
+.idea/
+.lein-deps-sum
+.lein-repl-history
+.lein-failures
+.nrepl-port
+.project
+.classpath
 
 # sbt specific
 .cache
@@ -14,6 +35,12 @@ project/plugins/project/
 
 # Scala-IDE specific
 .idea/
+*.iml
+*/*.iml
 .scala_dependencies
 .worksheet
 /bin/
+jdbc.sqlite
+testdb.properties
+testdb.script
+testdb.tmp/
