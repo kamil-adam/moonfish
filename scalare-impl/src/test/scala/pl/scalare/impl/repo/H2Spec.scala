@@ -4,8 +4,9 @@ import org.scalatest.FunSpec
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
 import pl.scalare.impl.repo.database.conf.H2DatabaseConf
+import pl.scalare.spec.GrayScalarSpec
 
-class H2Spec extends FunSpec {
+class H2Spec extends GrayScalarSpec {
   val conf = new H2DatabaseConf
   val url = conf.mem
   describe(url) {

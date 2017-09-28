@@ -5,8 +5,9 @@ import org.scalatest.FunSpec
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
 import pl.scalare.impl.repo.database.conf.HsqlDatabaseConf
+import pl.scalare.spec.GrayScalarSpec
 
-class HqslSpec extends FunSpec with LazyLogging {
+class HqslSpec extends GrayScalarSpec with LazyLogging {
   val conf = new HsqlDatabaseConf
   val url = conf.mem
   describe(url) {

@@ -5,8 +5,9 @@ import org.scalatest.FunSpec
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
 import pl.scalare.impl.repo.database.conf.DerbyDatabaseConf
+import pl.scalare.spec.GrayScalarSpec
 
-class DerbySpec extends FunSpec {
+class DerbySpec extends GrayScalarSpec {
   val url = new DerbyDatabaseConf().mem
   ignore(url) {
     //    val ds = new EmbeddedConnectionPoolDataSource()

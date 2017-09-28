@@ -1,12 +1,12 @@
 package pl.scalare.impl.repo
 
-import org.scalatest.FunSpec
 import org.skife.jdbi.v2.DBI
 import org.skife.jdbi.v2.util.StringMapper
 import org.sqlite.SQLiteJDBCLoader
 import pl.scalare.impl.repo.database.conf.SQLiteDatabaseConf
+import pl.scalare.spec.GrayScalarSpec
 
-class SQLiteSpec extends FunSpec {
+class SQLiteSpec extends GrayScalarSpec {
   val conf = new SQLiteDatabaseConf
   val url = conf.mem
   ignore(url) {
