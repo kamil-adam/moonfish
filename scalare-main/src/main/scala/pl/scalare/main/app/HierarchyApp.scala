@@ -1,4 +1,4 @@
-package pl.writeonly.dropservices
+package pl.scalare.main.app
 
 import com.google.common.eventbus._
 

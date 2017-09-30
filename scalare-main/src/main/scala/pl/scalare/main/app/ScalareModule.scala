@@ -1,4 +1,4 @@
-package pl.scalare.main
+package pl.scalare.main.app
 
 import com.google.common.collect.Lists
 import com.google.inject.{AbstractModule, Provides}

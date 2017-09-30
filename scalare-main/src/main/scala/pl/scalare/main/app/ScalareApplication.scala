@@ -1,4 +1,4 @@
-package pl.scalare.main
+package pl.scalare.main.app
 
 import java.util.{Map => jMap}
 

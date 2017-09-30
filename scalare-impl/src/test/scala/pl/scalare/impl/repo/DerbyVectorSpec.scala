@@ -1,15 +1,15 @@
 package pl.scalare.impl.repo
 
 import org.scalacheck.Gen
-import pl.scalare.impl.repo.database.conf.{DerbyDatabaseConf, SQLiteDatabaseConf}
+import pl.scalare.impl.repo.database.conf.DerbyDatabaseConf
 import pl.scalare.spec.GrayVectorSpec
 
-class DerbyVectorSpec extends GrayVectorSpec{
+class DerbyVectorSpec extends GrayVectorSpec {
 
   val conf = new DerbyDatabaseConf
   val keySet = conf.keySet
   val gen = Gen.oneOf(keySet.toSeq)
-  val evenInts =  for { n <- Gen.oneOf(keySet.toSeq) } yield n
+  val evenInts = for {n <- Gen.oneOf(keySet.toSeq)} yield n
 
   ignore("DerbyDatabaseConf") {
     forAll(evenInts) { (key) =>

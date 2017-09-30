@@ -20,7 +20,7 @@ trait DatabaseConf {
   def mem: String
 
   def ds: DataSource
-  
+
 
   def select(key: String) = {
     try {

@@ -86,7 +86,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>pl.scalare.main.ScalareApp</mainClass>
+                    <mainClass>pl.scalare.main.app.ScalareApp</mainClass>
                     <arguments>
                         <argument>server</argument>
                         <argument>yml/default-console-console.yml</argument>
