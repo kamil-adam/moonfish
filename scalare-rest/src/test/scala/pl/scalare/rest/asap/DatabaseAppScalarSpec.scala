@@ -4,7 +4,7 @@ import pl.scalare.spec.GrayScalarSpec
 
 class DatabaseAppScalarSpec extends GrayScalarSpec{
   describe("A DatabaseAsap") {
-    ignore("when invoke main") {
+    it("when invoke main") {
       DatabaseAsap.main(null)
     }
   }
