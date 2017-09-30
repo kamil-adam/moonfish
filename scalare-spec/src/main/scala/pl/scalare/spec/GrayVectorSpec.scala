@@ -1,8 +1,7 @@
 package pl.scalare.spec
 
-import org.scalatest.prop.TableDrivenPropertyChecks
+import org.scalatest.prop.PropertyChecks
 import org.scalatest.{Matchers, PropSpec}
 
-abstract class GrayVectorSpec extends PropSpec with TableDrivenPropertyChecks with Matchers {
+abstract class GrayVectorSpec extends PropSpec with Matchers with PropertyChecks
 
-}

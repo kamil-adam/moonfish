@@ -20,6 +20,7 @@ trait DatabaseConf {
   def mem: String
 
   def ds: DataSource
+  
 
   def select(key: String) = {
     try {
@@ -30,7 +31,7 @@ trait DatabaseConf {
       h.close()
       list.asScala.map(a => a.asScala.toMap)
     } catch {
-      case NonFatal(e) => throw new IllegalArgumentException(key, e)
+      case NonFatal(e) => throw new IllegalArgumentException("[" + key + "]", e)
     }
   }
 
