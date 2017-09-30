@@ -8,7 +8,7 @@ import io.dropwizard.servlets.tasks.Task
 import pl.scalare.impl.repo.database.conf.SQLiteDatabaseConf
 
 
-class TruncateTask @Inject()(val database: SQLiteDatabaseConf) extends Task("truncate") {
+class TaskTruncate @Inject()(val database: SQLiteDatabaseConf) extends Task("truncate") {
 
   override def execute(parameters: ImmutableMultimap[String, String], output: PrintWriter): Unit = {
     //    this.database.truncate();
