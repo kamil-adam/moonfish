@@ -12,5 +12,9 @@ class DatabaseResourceScalarSpec extends GrayScalarSpec {
     it("when invoke databases") {
       rsrc.databases.length should be > 0
     }
+    it("when invoke databasesView") {
+      val view = rsrc.databasesView
+      view.databases.length should be > 0
+    }
   }
 }

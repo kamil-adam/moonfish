@@ -7,5 +7,8 @@ class DatabaseAppScalarSpec extends GrayScalarSpec {
     it("when invoke main") {
       DatabaseAsap.main(null)
     }
+    it("when invoke a") {
+      DatabaseAsap.a()
+    }
   }
 }

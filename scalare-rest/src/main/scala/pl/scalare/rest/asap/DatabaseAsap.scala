@@ -1,5 +1,7 @@
 package pl.scalare.rest.asap
 
+import java.util.Optional
+
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.google.gson.JsonParser
 import org.fusesource.scalate.TemplateEngine
@@ -38,7 +40,7 @@ object DatabaseAsap extends AppLogging {
   def a(): Unit = {
     val repo = new SelectRepoFake
     val resource = new DatabaseResource(repo, null)
-    val table = resource.select("hsql", "VIEWS", null, null)
+    val table = resource.select("hsql", "VIEWS", Optional.empty(), Optional.empty())
     val mapper = new ObjectMapper
     val json = mapper.writeValueAsString(table)
     println(json)

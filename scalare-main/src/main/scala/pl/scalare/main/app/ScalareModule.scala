@@ -15,7 +15,6 @@ import pl.scalare.core.repo._
 import pl.scalare.impl.repo._
 import pl.scalare.rest.User
 
-
 class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends AbstractModule {
 
   @Provides

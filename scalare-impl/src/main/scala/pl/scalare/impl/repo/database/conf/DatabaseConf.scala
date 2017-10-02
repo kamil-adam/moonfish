@@ -24,14 +24,14 @@ trait DatabaseConf {
 
   def select(key: String) = {
     try {
-      val sql = selects.get(key).get
+      val sql = selects.get(key.toLowerCase).get
       val dbi = new DBI(ds)
       val h = dbi.open()
       val list = h.select(sql)
       h.close()
       list.asScala.map(a => a.asScala.toMap)
     } catch {
-      case NonFatal(e) => throw new IllegalArgumentException("[" + key + "]", e)
+      case NonFatal(e) => throw new IllegalArgumentException("[" + key + "]" + selects, e)
     }
   }
 
