@@ -51,7 +51,7 @@ class DatabaseResourceScalarSpec extends GrayScalarSpec {
         }
       }
     }
-    it("when invoke header") {
+    ignore("when invoke header") {
       databases.foreach { db =>
         rsrc.keys(db).foreach { key =>
           val header = rsrc.header(db, key)
