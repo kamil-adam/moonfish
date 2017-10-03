@@ -12,6 +12,7 @@ class DatabaseResourceScalarSpec extends GrayScalarSpec {
     val repo = new SelectRepoFake()
     val conf = new ViewConfiguration
     val rsrc = new DatabaseResource(repo, conf)
+    val databases = Array("sqlite", "hsql","h2")
     it("when invoke databases") {
       rsrc.databases.length should be > 0
     }
@@ -32,12 +33,29 @@ class DatabaseResourceScalarSpec extends GrayScalarSpec {
       }
     }
     it("when invoke select") {
-      val databases = Array("sqlite", "hsql","h2")
       databases.foreach { db =>
         rsrc.keys(db).foreach { key =>
           val select = rsrc.select(db, key, Optional.empty(), Optional.empty())
           select.getHeader.length should be >= 0
           select.getBody.length should be >= 0
+        }
+      }
+    }
+    it("when invoke selectView") {
+      databases.foreach { db =>
+        rsrc.keys(db).foreach { key =>
+          val view = rsrc.selectView(db, key, Optional.empty(), Optional.empty())
+          val select = view.table
+          select.getHeader.length should be >= 0
+          select.getBody.length should be >= 0
+        }
+      }
+    }
+    it("when invoke header") {
+      databases.foreach { db =>
+        rsrc.keys(db).foreach { key =>
+          val header = rsrc.header(db, key)
+          header.length should be >= 0
         }
       }
     }
