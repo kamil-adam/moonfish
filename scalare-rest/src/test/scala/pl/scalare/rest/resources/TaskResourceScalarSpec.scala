@@ -12,5 +12,10 @@ class TaskResourceScalarSpec extends GrayScalarSpec {
     it("when invoke tasks") {
       resource.tasks.length should be > 0
     }
+    it("when invoke tasksView") {
+      val view = resource.tasksView
+      view.tasks.length should be >= 0
+    }
+
   }
 }
