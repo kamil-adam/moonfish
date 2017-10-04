@@ -8,9 +8,9 @@ class TaskResourceScalarSpec extends GrayScalarSpec {
   describe("A TaskResource") {
     val repo = new TaskRepoFake()
     val conf = new ViewConfiguration
-    val rsrc = new TaskResource(repo, conf)
+    val resource = new TaskResource(repo, conf)
     it("when invoke tasks") {
-      rsrc.tasks.length should be > 0
+      resource.tasks.length should be > 0
     }
   }
 }

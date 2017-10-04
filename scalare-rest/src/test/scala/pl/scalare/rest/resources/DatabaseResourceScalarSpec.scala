@@ -11,31 +11,31 @@ class DatabaseResourceScalarSpec extends GrayScalarSpec {
   describe("A DatabaseResourceScalarSpec") {
     val repo = new SelectRepoFake()
     val conf = new ViewConfiguration
-    val rsrc = new DatabaseResource(repo, conf)
+    val resource = new DatabaseResource(repo, conf)
     val databases = Array("sqlite", "hsql","h2")
     it("when invoke databases") {
-      rsrc.databases.length should be > 0
+      resource.databases.length should be > 0
     }
     it("when invoke databasesView") {
-      val view = rsrc.databasesView
+      val view = resource.databasesView
       view.databases.length should be > 0
     }
 
     it("when invoke keys") {
-      rsrc.databases.foreach {
-        rsrc.keys(_).length should be > 0
+      resource.databases.foreach {
+        resource.keys(_).length should be > 0
       }
     }
     it("when invoke keysView") {
-      rsrc.databases.foreach { key =>
-          val view: KeysView = rsrc.keysView(key)
+      resource.databases.foreach { key =>
+          val view: KeysView = resource.keysView(key)
           view.keys.length should be > 0
       }
     }
     it("when invoke select") {
       databases.foreach { db =>
-        rsrc.keys(db).foreach { key =>
-          val select = rsrc.select(db, key, Optional.empty(), Optional.empty())
+        resource.keys(db).foreach { key =>
+          val select = resource.select(db, key, Optional.empty(), Optional.empty())
           select.getHeader.length should be >= 0
           select.getBody.length should be >= 0
         }
@@ -43,8 +43,8 @@ class DatabaseResourceScalarSpec extends GrayScalarSpec {
     }
     it("when invoke selectView") {
       databases.foreach { db =>
-        rsrc.keys(db).foreach { key =>
-          val view = rsrc.selectView(db, key, Optional.empty(), Optional.empty())
+        resource.keys(db).foreach { key =>
+          val view = resource.selectView(db, key, Optional.empty(), Optional.empty())
           val select = view.table
           select.getHeader.length should be >= 0
           select.getBody.length should be >= 0
@@ -53,8 +53,8 @@ class DatabaseResourceScalarSpec extends GrayScalarSpec {
     }
     ignore("when invoke header") {
       databases.foreach { db =>
-        rsrc.keys(db).foreach { key =>
-          val header = rsrc.header(db, key)
+        resource.keys(db).foreach { key =>
+          val header = resource.header(db, key)
           header.length should be >= 0
         }
       }
