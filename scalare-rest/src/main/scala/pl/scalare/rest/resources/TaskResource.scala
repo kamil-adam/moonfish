@@ -4,7 +4,7 @@ import javax.inject.Inject
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.{GET, Path, Produces}
 
-import com.codahale.metrics.annotation.Timed
+import com.codahale.metrics.annotation.{ExceptionMetered, Metered, Timed}
 import pl.scalare.core.repo.TaskRepo
 import pl.scalare.rest.ViewConfiguration
 import pl.scalare.rest.views.TasksView
@@ -15,11 +15,11 @@ class TaskResource @Inject()(@Inject val repo: TaskRepo, @Inject val view: ViewC
 
   @GET
   @Path("/view")
-  @Timed
+  @Timed @Metered @ExceptionMetered
   def tasksView = new TasksView(view, tasks)
 
   @GET
   @Path("/")
-  @Timed
+  @Timed @Metered @ExceptionMetered
   def tasks = repo.tasks.toArray
 }

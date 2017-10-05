@@ -90,7 +90,6 @@ class ScalareModule(val c: ScalareConfiguration, val e: Environment) extends Abs
     bind(classOf[TaskRepo]).to(classOf[TaskRepoFake]).asEagerSingleton()
     bind(classOf[HealthCheckRepo]).to(classOf[HealthCheckRepoImpl]).asEagerSingleton()
     bind(classOf[EventRepo]).to(classOf[EventRepoImpl]).asEagerSingleton()
-    bind(classOf[SnapshotRepo]).to(classOf[SnapshotRepoImpl]).asEagerSingleton()
     bind(classOf[OmnibusProxy]).to(classOf[OmnibusProxyImpl]).asEagerSingleton()
   }
 

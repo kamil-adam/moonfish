@@ -5,7 +5,7 @@ import javax.inject.Inject
 import javax.ws.rs.core.MediaType
 import javax.ws.rs.{QueryParam, _}
 
-import com.codahale.metrics.annotation.Timed
+import com.codahale.metrics.annotation.{ExceptionMetered, Metered, Timed}
 import pl.scalare.core.model.OptDatas.optInt
 import pl.scalare.core.model._
 import pl.scalare.core.repo.SelectRepo
@@ -24,22 +24,22 @@ class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: 
 
   @GET
   @Path("/")
-  @Timed
+  @Timed @Metered @ExceptionMetered
   def databases = repo.databases.toArray
 
   @GET
   @Path("/{db}/keys/view")
-  @Timed
+  @Timed @Metered @ExceptionMetered
   def keysView(@PathParam("db") db: String) = new KeysView(rtc, keys(db))
 
   @GET
   @Path("/{db}/keys")
-  @Timed
+  @Timed @Metered @ExceptionMetered
   def keys(@PathParam("db") db: String) = repo.keys(db).toArray
 
   @GET
   @Path("/{db}/keys/{key}/header/")
-  @Timed
+  @Timed @Metered @ExceptionMetered
   def header(@PathParam("db") db: String, @PathParam("key") key: String) = {
     val select = repo.select(db, key, null)
     select.iterator.next().map(m => new Cell(m._1)).toArray
@@ -47,7 +47,7 @@ class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: 
 
   @GET
   @Path("/{db}/keys/{key}/view/")
-  @Timed
+  @Timed @Metered @ExceptionMetered
   def selectView(@PathParam("db") db: String,
                  @PathParam("key") key: String,
                  @QueryParam("limit") limit: Optional[Integer],
@@ -55,7 +55,7 @@ class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: 
 
   @GET
   @Path("/{db}/keys/{key}/")
-  @Timed
+  @Timed @Metered @ExceptionMetered
   def select(@PathParam("db") db: String,
              @PathParam("key") key: String,
              @QueryParam("limit") limit: Optional[Integer],
@@ -79,7 +79,7 @@ class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: 
 
   @POST
   @Path("/{db}/keys/{key}/")
-  @Timed
+  @Timed @Metered @ExceptionMetered
   def post(
             @QueryParam("driverClass") driverClass: String,
             @QueryParam("url") url: String,

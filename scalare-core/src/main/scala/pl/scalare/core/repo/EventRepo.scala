@@ -13,4 +13,6 @@ trait EventRepo {
 
   def findById(id: Int): Event
 
+  def findByUuid(uuid: String): Event
+
 }

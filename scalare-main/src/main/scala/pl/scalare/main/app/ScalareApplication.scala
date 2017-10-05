@@ -18,6 +18,7 @@ import pl.scalare.core.repo.HealthCheckRepo
 import pl.scalare.main.healthchecks.{EventHealthCheck, SQLiteHealthCheck, TemplateHealthCheck}
 import pl.scalare.rest.User
 import pl.scalare.rest.resources._
+import pl.scalare.rest.servlets.ScalareServlet
 import pl.scalare.rest.tasks.TaskTruncate
 
 class ScalareApplication extends Application[ScalareConfiguration] with LazyLogging {
@@ -55,6 +56,7 @@ class ScalareApplication extends Application[ScalareConfiguration] with LazyLogg
     //other
     //    e.jersey().register(new IllegalArgumentExceptionMapper(e.metrics()));
     //    e.jersey().register(new Resource());
+    e.getApplicationContext.addServlet(classOf[ScalareServlet], "ScalareServlet")
 
   }
 
