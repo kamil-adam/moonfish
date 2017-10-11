@@ -15,3 +15,10 @@
 * add graphql 
   * https://github.com/graphql-java/graphql-java
   * https://github.com/sangria-graphql/sangria
+
+## back
+* Add cassandra http://getquill.io/#docs
+* Add couchbase https://www.couchbase.com/products/n1ql
+* Add cockroachlabs https://www.cockroachlabs.com/
+* Add persistance by redisson
+* Add persistance by mongojack
