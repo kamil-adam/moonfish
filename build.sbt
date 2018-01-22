@@ -1,4 +1,6 @@
-sbt.version = 0.13 .13
+
+enablePlugins(com.lucidchart.sbt.scalafmt.ScalafmtPlugin)
+
 
 lazy val commonSettings = Seq(
   organization := "pl.writeonly.son2",
