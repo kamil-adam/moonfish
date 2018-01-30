@@ -4,6 +4,10 @@
 [![GitHub issues](https://img.shields.io/github/issues/writeonly/scalare.svg)](https://github.com/writeonly/scalare/issues)
 [![License][licenseImg]][licenseLink]
 
+[licenseImg]: https://img.shields.io/github/license/writeonly/scalare.svg
+[licenseImg2]: https://img.shields.io/:license-mit-blue.svg
+[licenseLink]: LICENSE
+
 * https://circleci.com/gh/writeonly/scalare
 
 # ScalaRE
