@@ -11,27 +11,28 @@
 * https://circleci.com/gh/writeonly/scalare
 
 # ScalaRE
-
+```
 FOR people
 WHO want to make a query
 THE Scalare IS A database selector and manager
 THAT is a one jar
 UNLIKE others database manager
 OUR PRODUCT is a one jar
-
-# Main technology
+```
+It is a demo application with:
+## Main technology
 * Scala for logic
 * Dropwizard for Rest
 * Guice for DI
 * Mustache for view
 
-# Other technology
+## Other technology
 * ScalaTest
 * ScalaMock
 * ScalaTE
 * Scalatra
 
-# Database
+## Database
 * Embedded SQL
  * derby
  * h2
@@ -51,7 +52,7 @@ OUR PRODUCT is a one jar
  * Redis
 
 
-
+# Usage
 java -jar scalare-main/target/scalare-main-1.0.6-SNAPSHOT.jar server scalare.yml
 
 java -cp scalare-main/target/scalare-main-1.0.6-SNAPSHOT.jar pl.scalare.rest.asaps.DatabaseAsap
