@@ -1,9 +1,16 @@
-language: java
+language: scala
+scala:
+   - 2.12.4
+   - 2.11.12
+   - 2.10.7
+   - 2.9.3
 jdk:
   - oraclejdk8
 dist: trusty
 sudo: false
-script: "mvn test && mvn verify"
+script:
+  - sbt clean scalafmt::test test:scalafmt::test fun:scalafmt::test jacoco fun:jacoco coverage test fun:test assembly coverageReport && sbt coverageAggregate && sbt scalastyle stats
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
   - python <(curl -s https://raw.githubusercontent.com/TouK/sputnik-ci/master/sputnik-ci.py)
