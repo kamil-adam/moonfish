@@ -3,19 +3,18 @@ package pl.scalare.rest.resources
 import java.util.Optional
 import javax.inject.Inject
 import javax.ws.rs.core.MediaType
-import javax.ws.rs.{QueryParam, _}
+import javax.ws.rs.{ QueryParam, _ }
 
-import com.codahale.metrics.annotation.{ExceptionMetered, Metered, Timed}
+import com.codahale.metrics.annotation.{ ExceptionMetered, Metered, Timed }
 import pl.scalare.core.model.OptDatas.optInt
 import pl.scalare.core.model._
 import pl.scalare.core.repo.SelectRepo
 import pl.scalare.rest.ViewConfiguration
-import pl.scalare.rest.views.{DatabasesView, KeysView, SelectView}
-
+import pl.scalare.rest.views.{ DatabasesView, KeysView, SelectView }
 
 @Path("/databases")
 @Produces(Array(MediaType.APPLICATION_JSON, MediaType.TEXT_HTML))
-class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: ViewConfiguration) {
+class DatabaseResource @Inject() (@Inject val repo: SelectRepo, @Inject val rtc: ViewConfiguration) {
 
   @GET
   @Path("/view")
@@ -48,18 +47,20 @@ class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: 
   @GET
   @Path("/{db}/keys/{key}/view/")
   @Timed @Metered @ExceptionMetered
-  def selectView(@PathParam("db") db: String,
-                 @PathParam("key") key: String,
-                 @QueryParam("limit") limit: Optional[Integer],
-                 @QueryParam("offset") offset: Optional[Integer]) = new SelectView(rtc, select(db, key, limit, offset))
+  def selectView(
+    @PathParam("db") db: String,
+    @PathParam("key") key: String,
+    @QueryParam("limit") limit: Optional[Integer],
+    @QueryParam("offset") offset: Optional[Integer]) = new SelectView(rtc, select(db, key, limit, offset))
 
   @GET
   @Path("/{db}/keys/{key}/")
   @Timed @Metered @ExceptionMetered
-  def select(@PathParam("db") db: String,
-             @PathParam("key") key: String,
-             @QueryParam("limit") limit: Optional[Integer],
-             @QueryParam("offset") offset: Optional[Integer]) = {
+  def select(
+    @PathParam("db") db: String,
+    @PathParam("key") key: String,
+    @QueryParam("limit") limit: Optional[Integer],
+    @QueryParam("offset") offset: Optional[Integer]) = {
 
     val optData = OptData(limit, offset)
     val select = repo.select(db, key, optData)
@@ -81,12 +82,11 @@ class DatabaseResource @Inject()(@Inject val repo: SelectRepo, @Inject val rtc: 
   @Path("/{db}/keys/{key}/")
   @Timed @Metered @ExceptionMetered
   def post(
-            @QueryParam("driverClass") driverClass: String,
-            @QueryParam("url") url: String,
-            @QueryParam("user") user: String,
-            @QueryParam("password") password: String): Unit = {
+    @QueryParam("driverClass") driverClass: String,
+    @QueryParam("url") url: String,
+    @QueryParam("user") user: String,
+    @QueryParam("password") password: String): Unit = {
 
   }
-
 
 }

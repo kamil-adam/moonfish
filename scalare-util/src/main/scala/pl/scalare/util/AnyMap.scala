@@ -21,7 +21,6 @@ class AnyMap(val any: Any) extends AbstractMap[String, Any] {
 
   override def -(key: String): Map[String, Any] = ???
 
-
   private def opt(value: Any): Option[Any] = {
     value match {
       case a: Array[_] => Option(a.map(v => opt(v).toList))

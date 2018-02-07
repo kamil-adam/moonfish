@@ -35,8 +35,7 @@ class H2DatabaseConf extends DatabaseConf {
     "TRIGGERS",
     "TYPE_INFO",
     "USERS",
-    "VIEWS"
-  )
+    "VIEWS")
 
   override def mem = "jdbc:h2:mem:" + file
 

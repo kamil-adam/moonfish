@@ -1,21 +1,21 @@
 package pl.scalare.main.app
 
-import java.util.{Map => jMap}
+import java.util.{ Map => jMap }
 
 import com.codahale.metrics.MetricRegistry
 import com.codahale.metrics.health.HealthCheckRegistry
-import com.google.inject.{Guice, Injector}
+import com.google.inject.{ Guice, Injector }
 import com.typesafe.scalalogging.LazyLogging
 import io.dropwizard.Application
-import io.dropwizard.auth.{AuthDynamicFeature, AuthValueFactoryProvider}
+import io.dropwizard.auth.{ AuthDynamicFeature, AuthValueFactoryProvider }
 import io.dropwizard.jersey.setup.JerseyEnvironment
 import io.dropwizard.jetty.setup.ServletEnvironment
 import io.dropwizard.lifecycle.setup.LifecycleEnvironment
-import io.dropwizard.setup.{AdminEnvironment, Bootstrap, Environment}
+import io.dropwizard.setup.{ AdminEnvironment, Bootstrap, Environment }
 import io.dropwizard.views.ViewBundle
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature
 import pl.scalare.core.repo.HealthCheckRepo
-import pl.scalare.main.healthchecks.{EventHealthCheck, SQLiteHealthCheck, TemplateHealthCheck}
+import pl.scalare.main.healthchecks.{ EventHealthCheck, SQLiteHealthCheck, TemplateHealthCheck }
 import pl.scalare.rest.User
 import pl.scalare.rest.resources._
 import pl.scalare.rest.servlets.ScalareServlet

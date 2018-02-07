@@ -3,9 +3,7 @@ package pl.scalare.impl.repo.database.conf
 import org.hsqldb.jdbc.JDBCPool
 
 class HsqlDatabaseConf extends DatabaseConf {
-  def tables = Set(
-
-  )
+  def tables = Set()
 
   override def schema = "INFORMATION_SCHEMA."
 
@@ -70,8 +68,7 @@ class HsqlDatabaseConf extends DatabaseConf {
     "VIEWS",
     "VIEW_COLUMN_USAGE",
     "VIEW_ROUTINE_USAGE",
-    "VIEW_TABLE_USAGE"
-  )
+    "VIEW_TABLE_USAGE")
 
   override def url = "jdbc:hsqldb:file:" + file + ";ifexists=true"
 

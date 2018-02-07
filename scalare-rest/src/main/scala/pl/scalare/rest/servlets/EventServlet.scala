@@ -3,7 +3,7 @@ package pl.scalare.rest.servlets
 import org.scalatra.ScalatraServlet
 
 class EventServlet extends ScalatraServlet {
-  get("/articles/:id") {  //  <= this is a route matcher
+  get("/articles/:id") { //  <= this is a route matcher
     // this is an action
     // this action would show the article which has the specified :id
   }

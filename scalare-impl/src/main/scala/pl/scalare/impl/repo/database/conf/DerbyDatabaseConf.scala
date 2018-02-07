@@ -29,8 +29,7 @@ class DerbyDatabaseConf extends DatabaseConf {
     "SYSTABLES",
     "SYSTRIGGERS",
     "SYSUSERS",
-    "SYSVIEWS"
-  )
+    "SYSVIEWS")
 
   override def url: String = "jdbc:derby:" + file + ";create=true"
 

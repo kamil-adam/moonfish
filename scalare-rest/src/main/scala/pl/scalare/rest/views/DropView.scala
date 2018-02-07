@@ -5,7 +5,6 @@ import io.dropwizard.views.View
 import org.javatuples.Pair
 import pl.scalare.rest.ViewConfiguration
 
-
 class TasksView(val view: ViewConfiguration, val tasks: Array[String])
   extends View("tasks.mustache") {
 }

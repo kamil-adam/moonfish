@@ -3,7 +3,7 @@ package pl.scalare.util.asap
 import java.util.function.Consumer
 
 object Control {
-  def using[A <: {def close() : Unit}, B](resource: A)(f: A => B): B =
+  def using[A <: { def close(): Unit }, B](resource: A)(f: A => B): B =
     try {
       f(resource)
     } finally {

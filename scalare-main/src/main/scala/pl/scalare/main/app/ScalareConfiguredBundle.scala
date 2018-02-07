@@ -1,7 +1,7 @@
 package pl.scalare.main.app
 
 import io.dropwizard.ConfiguredBundle
-import io.dropwizard.setup.{Bootstrap, Environment}
+import io.dropwizard.setup.{ Bootstrap, Environment }
 
 abstract class ScalareConfiguredBundle extends ConfiguredBundle[ScalareConfiguredBundleConfiguration] {
 

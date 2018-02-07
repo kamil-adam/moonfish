@@ -1,16 +1,16 @@
 package pl.scalare.main.app
 
 import com.google.common.collect.Lists
-import com.google.inject.{AbstractModule, Provides}
+import com.google.inject.{ AbstractModule, Provides }
 import io.dropwizard.auth.basic.BasicCredentialAuthFilter
 import io.dropwizard.auth.chained.ChainedAuthFilter
 import io.dropwizard.auth.oauth.OAuthCredentialAuthFilter
-import io.dropwizard.auth.{AuthDynamicFeature, AuthValueFactoryProvider}
+import io.dropwizard.auth.{ AuthDynamicFeature, AuthValueFactoryProvider }
 import io.dropwizard.client.JerseyClientBuilder
 import io.dropwizard.jdbi.DBIFactory
 import io.dropwizard.server.AbstractServerFactory
 import io.dropwizard.setup.Environment
-import pl.scalare.core.client.{OmnibusProxy, OmnibusProxyImpl}
+import pl.scalare.core.client.{ OmnibusProxy, OmnibusProxyImpl }
 import pl.scalare.core.repo._
 import pl.scalare.impl.repo._
 import pl.scalare.rest.User

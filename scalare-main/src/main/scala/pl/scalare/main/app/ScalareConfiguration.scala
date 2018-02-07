@@ -12,8 +12,7 @@ import scala.beans.BeanProperty
 
 class ScalareConfiguration extends Configuration {
 
-  @BeanProperty
-  //  @NotEmpty
+  @BeanProperty //  @NotEmpty
   var view = new ViewConfiguration()
 
   @BeanProperty

@@ -3,7 +3,6 @@ package pl.scalare.impl.repo.database.conf
 import org.skife.jdbi.v2.DBI
 import pl.scalare.util.AppLogging
 
-
 trait DatabaseApp extends AppLogging {
   //  def selects(s : Database) = s.selects.values.foreach(v => println (v))
   def run(db: DatabaseConf) = {
@@ -13,4 +12,4 @@ trait DatabaseApp extends AppLogging {
 
   }
 }
-  
+

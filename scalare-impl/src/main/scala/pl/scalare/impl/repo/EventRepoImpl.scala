@@ -4,7 +4,7 @@ import java.sql.ResultSet
 
 import org.skife.jdbi.v2.StatementContext
 import org.skife.jdbi.v2.sqlobject.customizers.RegisterMapper
-import org.skife.jdbi.v2.sqlobject.{Bind, BindBean, SqlQuery, SqlUpdate}
+import org.skife.jdbi.v2.sqlobject.{ Bind, BindBean, SqlQuery, SqlUpdate }
 import org.skife.jdbi.v2.tweak.ResultSetMapper
 import pl.scalare.core.model.Event
 import pl.scalare.core.repo.EventRepo

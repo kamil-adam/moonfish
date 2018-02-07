@@ -21,7 +21,6 @@ trait DatabaseConf {
 
   def ds: DataSource
 
-
   def select(key: String) = {
     try {
       val sql = selects.get(key.toLowerCase).get
@@ -45,6 +44,5 @@ object DatabaseConf {
   def prefix = "SELECT * FROM "
 
   def folder = "database/"
-
 
 }

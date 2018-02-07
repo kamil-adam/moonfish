@@ -3,14 +3,11 @@ package pl.scalare.rest
 import scala.beans.BeanProperty
 
 class ViewConfiguration {
-  @BeanProperty
-  //  @Valid
+  @BeanProperty //  @Valid
   var host: String = _
-  @BeanProperty
-  //  @Valid
+  @BeanProperty //  @Valid
   var port: Int = _
-  @BeanProperty
-  //  @Valid
+  @BeanProperty //  @Valid
   var rootPath: String = _
 
   @BeanProperty

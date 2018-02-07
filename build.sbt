@@ -1,8 +1,12 @@
 enablePlugins(com.lucidchart.sbt.scalafmt.ScalafmtPlugin)
 
-lazy val dropwizardVersion = "1.1.4"
-lazy val jacksonVersion = "2.8.3"
+resolvers += "Artima Maven Repository" at "http://repo.artima.com/releases"
+resolvers += "Sonatype OSS Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots"
+
+lazy val dropwizardVersion = "1.0.6"
+lazy val jacksonVersion = "2.7.8"
 lazy val vaadinVersion = "8.1.2"
+lazy val hsqldbVersion = "2.3.4"
 
 lazy val versionSnapshot = "2.8.3-SNAPSHOT"
 
@@ -35,18 +39,102 @@ lazy val root = (project in file("."))
   .settings(
     name := "scalare",
     commonSettings,
-
-
     libraryDependencies += derby
   )
-lazy val core = (project in file("main"))
+lazy val main = (project in file("scalare-main"))
+  .dependsOn(rest)
   .configs(FunTest, FeatureTest)
   .settings(
-    // other settings
+    name := "scalare-main",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      "com.google.inject" % "guice" % "4.1.0",
+      "org.javatuples" % "javatuples" % "1.2"
+    )
   )
-lazy val util = (project in file("test"))
+
+lazy val rest = (project in file("scalare-rest"))
+  .dependsOn(japi, impl)
   .configs(FunTest, FeatureTest)
   .settings(
-    // other settings
+    name := "scalare-rest",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      "io.dropwizard" % "dropwizard-auth" % dropwizardVersion,
+      "io.dropwizard" % "dropwizard-views-mustache" % dropwizardVersion,
+      "org.scalatra.scalate" % "scalate-core_2.11" % "1.8.0",
+      "com.google.code.gson" % "gson" % "2.8.0",
+      "org.javatuples" % "javatuples" % "1.2",
+      "org.scalatra" % "scalatra_2.11" % "2.5.1"
+    )
   )
+
+lazy val japi = (project in file("scalare-japi"))
+  .configs(FunTest, FeatureTest)
+  .settings(
+    name := "scalare-japi",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      "io.dropwizard" % "dropwizard-validation" % dropwizardVersion
+    )
+  )
+
+lazy val impl = (project in file("scalare-impl"))
+  .dependsOn(core, util)
+  .configs(FunTest, FeatureTest)
+  .settings(
+    name := "scalare-impl",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      "io.dropwizard" % "dropwizard-jdbi" % dropwizardVersion,
+      "io.dropwizard" % "dropwizard-client" % dropwizardVersion,
+      "com.h2database" % "h2" % "1.4.193",
+      "org.hsqldb" % "hsqldb" % hsqldbVersion,
+      "org.hsqldb" % "sqltool" % hsqldbVersion,
+      "org.apache.derby" % "derby" % "10.13.1.1",
+      "org.xerial" % "sqlite-jdbc" % "3.16.1"
+    )
+  )
+
+lazy val core = (project in file("scalare-core"))
+  .dependsOn(spec)
+  .configs(FunTest, FeatureTest)
+  .settings(
+    name := "scalare-core",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      "io.dropwizard" % "dropwizard-core" % dropwizardVersion
+    )
+  )
+
+
+lazy val util = (project in file("scalare-util"))
+  .dependsOn(spec)
+  .settings(
+    name := "scalare-util",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      "com.fasterxml.jackson.core" % "jackson-core" % jacksonVersion,
+      "com.fasterxml.jackson.core" % "jackson-databind" % jacksonVersion,
+      "com.fasterxml.jackson.dataformat" % "jackson-dataformat-yaml" % jacksonVersion,
+      "org.yaml" % "snakeyaml" % "1.18",
+      "com.google.code.gson" % "gson" % "2.8.0"
+    )
+  )
+
+lazy val spec = (project in file("scalare-spec"))
+  .settings(
+    name := "scalare-spec",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      "org.scala-lang" % "scala-library" % "2.11.11",
+      "com.typesafe.scala-logging" % "scala-logging_2.11" % "3.7.2",
+      "org.scalamock" % "scalamock-scalatest-support_2.11" % "3.6.0",
+      "org.scalacheck" % "scalacheck_2.11" % "1.13.5",
+      "org.seleniumhq.selenium" % "selenium-java" % "2.35.0",
+      "org.pegdown" % "pegdown" % "1.6.0",
+      "ch.qos.logback" % "logback-classic" % "1.2.3"
+    )
+  )
+
 val derby = "org.apache.derby" % "derby" % "10.4.1.3"
